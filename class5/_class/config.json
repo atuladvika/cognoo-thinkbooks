@@ -1,0 +1,25 @@
+{
+  "class": 5,
+  "template_pdf": "/home/claude/tb/out/Class3_CT_ThinkBook_Ch1_v9.pdf",
+  "chapters": ["We the Travellers – I", "Fractions", "Angles as Turns", "We the Travellers – II", "Far and Near", "The Dairy Farm", "Shapes and Patterns", "Weight and Capacity", "Coconut Farm", "Symmetrical Designs", "Grandmother’s Quilt", "Racing Seconds", "Animal Jumps", "Maps and Locations", "Data Through Pictures"],
+  "built": {"1": 10},
+  "first_chapter": "We the Travellers – I",
+  "last_chapter": "Data Through Pictures",
+  "mock": {
+    "title": "CHAPTER 1 · WE THE TRAVELLERS – I",
+    "question": [["All 5 digits are ", false], ["different", true], [" and add up to ", false], ["10", true], [". What is the highest digit?", false]],
+    "options": ["a) 3", "b) 4", "c) 5", "d) 6"],
+    "option_gap": 26
+  },
+  "concept": "Coding-Decoding",
+  "tryit": [
+    {"skill": "Bridge", "ch": 5, "q": 6, "text": "I have to cut a 50-metre piece of cloth into pieces of 1 metre each. How many cuts will I make at minimum?", "think": "Picture cutting a ribbon into 3 pieces at home. How many snips did that take?"},
+    {"skill": "Starter", "ch": 4, "q": 7, "text": "Bob's 4 coins are worth 2, 4, 6 and 8. Coin C is worth more than A, and B + C = D. Which two coins can buy a Rs. 14 candy?", "think": "Start with B + C = D. Which coin can be the sum of two of the others?"},
+    {"skill": "Slicer", "ch": 2, "q": 10, "text": "Four buyers come into a chocolate shop one by one. Each buys half of the chocolates left. The fourth buyer buys only 1 chocolate. How many were there at first?", "think": "Work one buyer at a time, going backwards: before the 4th buyer there were 2. How many before the 3rd?"},
+    {"skill": "Echo", "ch": 2, "q": 9, "text": "Six times me makes a whole and a half. Take me out of a whole and three of me are left. Who am I?", "think": "Say it simply: “Six of me make one and a half.”"},
+    {"skill": "Vault", "ch": 3, "q": 3, "text": "Prachi is facing North. She takes two right-angle turns in the clockwise direction. Which direction is she facing now?", "think": "I know the directions in clockwise order: North, East, South, West."},
+    {"skill": "Roots", "ch": 4, "q": 1, "text": "Which statement is DEFINITELY true about a five-digit number with three odd digits and two even digits?", "think": "Ask why sums turn odd or even: odd + odd is even. What do three odd digits add up to?"},
+    {"skill": "Translator", "ch": 4, "q": 4, "text": "John has Rs. 12. He buys 3 balls and 2 balloons and has Rs. 2 left, which is the cost of 1 ball. What is the cost of 1 balloon?", "think": "Write it as a number sentence: 3 × 2 + 2 × balloon + 2 = 12. Now it is just sums!"}
+  ],
+  "backcover_intro": "In Class 5, children grow their Computational Thinking skills: reasoning with digits and place value, spotting patterns and breaking a problem into small steps. These are not just computer skills. They are thinking skills for every subject."
+}
