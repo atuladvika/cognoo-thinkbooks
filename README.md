@@ -1,0 +1,14 @@
+# Cognoo CT ThinkBooks (Classes 3–8)
+
+Source of record for the Cognoo Computational Thinking ThinkBook Companions.
+One folder per class; each is built with `python3 make.py <output.pdf>` from inside that folder
+(needs Python 3, PyMuPDF and Playwright with Chromium).
+
+| Folder | Contents | Latest approved |
+|---|---|---|
+| `class3/` | Class 3, Chapter 1 sample | v8 (24 Nov 2026) |
+
+- `print/` (not in Git) holds the built PDFs and source zips sent to print.
+- Never rebuild a book from a PDF; edit the pages/overlays here and rebuild.
+- Print stock: front cover, inside front, inside back and back cover on card; all other pages on paper, kept even.
+- QR codes: Cognoo QR Manager only; see each class's `QR_Code_Map_Class<N>.csv`.

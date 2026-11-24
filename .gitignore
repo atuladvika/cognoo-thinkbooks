@@ -1,0 +1,6 @@
+# Built PDFs and source zips (kept locally in print/, not in Git)
+print/
+*.pdf
+book.html
+__pycache__/
+.DS_Store
