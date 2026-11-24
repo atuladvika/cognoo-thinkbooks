@@ -428,6 +428,8 @@
 </g>
 </g>
 </g>
+<!-- top-tile fix: extends the hero art upward so the play tile is not cut (24 Nov 2026) -->
+<g transform="matrix(.21082475,0,0,0.2108527,.7879999,308.0536)"><image width="2910" height="102" xlink:href="assets/cover_hero_topfix.png"/></g>
 <g mask="url(#p1_mask_41)">
 <g transform="matrix(.09568107,0,0,.09516616,48.038,44.985048)">
 <image id="p1_image_43" width="1505" height="331" xlink:href="assets/img_ecc711bd5a81.png"/>

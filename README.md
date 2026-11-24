@@ -6,7 +6,7 @@ One folder per class; each is built with `python3 make.py <output.pdf>` from ins
 
 | Folder | Contents | Latest approved |
 |---|---|---|
-| `class3/` | Class 3, Chapter 1 sample | v8 (24 Nov 2026) |
+| `class3/` | Class 3, Chapter 1 sample | v9 (24 Nov 2026) |
 
 - `print/` (not in Git) holds the built PDFs and source zips sent to print.
 - Never rebuild a book from a PDF; edit the pages/overlays here and rebuild.
