@@ -4,3 +4,6 @@ print/
 book.html
 __pycache__/
 .DS_Store
+
+# Handbooks and source files (kept on the Mac only)
+inputs/
