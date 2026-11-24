@@ -1,0 +1,23 @@
+{
+  "class": 4,
+  "chapters": ["Shapes Around Us", "Hide and Seek", "Patterns Around Us", "Thousands Around Us", "Sharing and Measuring", "Measuring Length", "The Cleanest Village", "Weigh It, Pour It", "Equal Groups", "Elephants, Tigers, and Leopards", "Fun with Symmetry", "Ticking Clocks and Turning Calendar", "The Transport Museum", "Data Handling"],
+  "first_chapter": "Shapes Around Us",
+  "last_chapter": "Data Handling",
+  "mock": {
+    "title": "CHAPTER 1 · SHAPES AROUND US",
+    "question": [["Which shape ", false], ["CANNOT", true], [" come from ", false], ["one straight cut", true], [" of a rectangle?", false]],
+    "options": ["a) 3 angles", "b) 4 angles", "c) 5 angles", "d) 6 angles"],
+    "option_gap": 16
+  },
+  "concept": "Cubes and Dice",
+  "tryit": [
+    {"skill": "Bridge", "ch": 9, "q": 5, "text": "Radha has some five-rupee coins. Seeta asks how much money she has. How can Radha work it out?", "think": "Picture your own piggy bank. If you had 3 five-rupee coins, how would you find the total?"},
+    {"skill": "Starter", "ch": 3, "q": 9, "text": "A, B, C and D stand in a queue. A is not at an even position, D is just ahead of B, and B is not last. Who is last?", "think": "Start with the pair: D stands just ahead of B. Where can that pair fit in a queue of 4?"},
+    {"skill": "Slicer", "ch": 7, "q": 7, "text": "A container has 20 blue balls and 13 red balls. Each button removes some balls. Sam presses Red, Green, Blue, then Green. Which balls are left?", "think": "Do one press at a time. Write the blue and the red count after every press, then move to the next button."},
+    {"skill": "Echo", "ch": 8, "q": 6, "text": "Johnny can carry 20 kg in all and already has a bag. How can he find the extra weight he can carry?", "think": "Say it simply: “20 kg is the bag plus the extra.”"},
+    {"skill": "Vault", "ch": 5, "q": 5, "text": "Which option shows the correct number of minutes in (1/4 + 1/2) hour?", "think": "I know 1 hour is 60 minutes. Half an hour is 30 minutes and a quarter of an hour is 15."},
+    {"skill": "Roots", "ch": 3, "q": 7, "text": "Mani tries many times but cannot share his sweets equally with Swami. What could be the reason?", "think": "Ask why sharing works: 6 sweets split as 3 and 3, but 7 sweets do not. What kind of number always splits?"},
+    {"skill": "Translator", "ch": 8, "q": 7, "text": "Rheya weighs 18 kg less than her father. Her father weighs 10 kg more than her mother. Her mother weighs 65 kg. What is Rheya's weight?", "think": "Write it as number sentences: Father = 65 + 10, and Rheya = Father − 18. Now it is just sums!"}
+  ],
+  "backcover_intro": "In Class 4, children build on their first Computational Thinking skills: picturing shapes from every side, spotting patterns and breaking a problem into small steps. These are not just computer skills. They are thinking skills for every subject."
+}
