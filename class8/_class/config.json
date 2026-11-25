@@ -1,0 +1,95 @@
+{
+ "class": 8,
+ "template_pdf": "/home/claude/tb/out/Class3_CT_ThinkBook_Ch1_v9.pdf",
+ "chapters": [
+  "A Square and a Cube",
+  "Power Play",
+  "A Story of Numbers",
+  "Quadrilaterals",
+  "Number Play",
+  "We Distribute Yet Things Multiply",
+  "Proportional Reasoning"
+ ],
+ "built": {
+  "1": 10
+ },
+ "first_chapter": "A Square and a Cube",
+ "last_chapter": "Proportional Reasoning",
+ "mock": {
+  "title": "CHAPTER 1 · A SQUARE AND A CUBE",
+  "question": [
+   [
+    "56 × k is a perfect cube. What is the ",
+    false
+   ],
+   [
+    "smallest",
+    true
+   ],
+   [
+    " possible value of k?",
+    false
+   ]
+  ],
+  "options": [
+   "a) 36",
+   "b) 49",
+   "c) 56",
+   "d) 72"
+  ],
+  "option_gap": 26
+ },
+ "concept": "Number Series",
+ "tryit": [
+  {
+   "skill": "Bridge",
+   "ch": 3,
+   "q": 1,
+   "text": "Using pipes of 1 inch and 10 inches (up to 9 of each), how many pipes will it take to measure the height of a person who is 66 inches tall?",
+   "think": "Picture measuring yourself with a ruler: count the tens first, then the ones."
+  },
+  {
+   "skill": "Starter",
+   "ch": 2,
+   "q": 4,
+   "text": "X, Y and Z are single-digit whole numbers, and XY is a two-digit number. If 4000 &lt; (XY)<sup>Z</sup> &lt; 5000, what is the minimum possible value of XY?",
+   "think": "Begin with Z: try Z = 2, then Z = 3. Which powers can land between 4000 and 5000?"
+  },
+  {
+   "skill": "Slicer",
+   "ch": 2,
+   "q": 7,
+   "text": "How many possible combinations of 1 owl and 1 tree can be made from 3 owls and 5 trees?",
+   "think": "Take one owl at a time. How many trees can it be paired with? Then add up for all three owls."
+  },
+  {
+   "skill": "Echo",
+   "ch": 5,
+   "q": 4,
+   "text": "Sam has two different two-digit numbers. Both are divisible by 9, and neither is a multiple of 18. What is the LEAST possible sum of the two numbers?",
+   "think": "Say it simply: “two-digit multiples of 9 that are not multiples of 18.” List the smallest ones."
+  },
+  {
+   "skill": "Vault",
+   "ch": 2,
+   "q": 2,
+   "text": "What will come in place of “?” in the series 6, 26, 126, 626, ?",
+   "think": "I know the powers of 5: 5, 25, 125, 625. Compare them with the series."
+  },
+  {
+   "skill": "Roots",
+   "ch": 3,
+   "q": 3,
+   "text": "Why can’t we use the digit “2” when we write a number in binary?",
+   "think": "Ask what a 2 would mean: two pipes of the same length. Could one pipe of the next length do the same job?"
+  },
+  {
+   "skill": "Translator",
+   "ch": 5,
+   "q": 8,
+   "text": "In 2020, Simran’s age was a multiple of 6. In 2024, her age was a multiple of 11. Which could be her age in 2024: 11, 22, 33 or 44 years?",
+   "think": "Write it in numbers: if she is n in 2024, then n − 4 must be a multiple of 6."
+  }
+ ],
+ "backcover_intro": "In Class 8, children take Computational Thinking further: spotting patterns in squares and cubes, turning a few examples into a general rule and working through logic puzzles step by step. These are not just computer skills. They are thinking skills for every subject."
+}
