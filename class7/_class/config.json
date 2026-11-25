@@ -1,0 +1,96 @@
+{
+ "class": 7,
+ "template_pdf": "/home/claude/tb/out/Class3_CT_ThinkBook_Ch1_v9.pdf",
+ "chapters": [
+  "Large Numbers Around Us",
+  "Arithmetic Expressions",
+  "A Peek Beyond the Point",
+  "Expressions using Letter-Numbers",
+  "Parallel and Intersecting Lines",
+  "Number Play",
+  "A Tale of Three Intersecting Lines",
+  "Working with Fractions"
+ ],
+ "built": {
+  "1": 10
+ },
+ "first_chapter": "Large Numbers Around Us",
+ "last_chapter": "Working with Fractions",
+ "mock": {
+  "title": "CHAPTER 1 · LARGE NUMBERS AROUND US",
+  "question": [
+   [
+    "What is the ",
+    false
+   ],
+   [
+    "product",
+    true
+   ],
+   [
+    " of all the numbers on a telephone dial-pad?",
+    false
+   ]
+  ],
+  "options": [
+   "a) 12345",
+   "b) 32451",
+   "c) 362880",
+   "d) None of these"
+  ],
+  "option_gap": 20
+ },
+ "concept": "Analytical Reasoning",
+ "tryit": [
+  {
+   "skill": "Bridge",
+   "ch": 4,
+   "q": 6,
+   "text": "The sum of the ages of Shubham and Shivam is 36. What will the sum of their ages be after 36 years?",
+   "think": "Think of you and a friend. In one year, how much older does each of you get?"
+  },
+  {
+   "skill": "Starter",
+   "ch": 2,
+   "q": 3,
+   "text": "In ‘8 @ 7 − 15 < 4 × 2 × 5’, which operator cannot be used in place of ‘@’, so that the condition stays true?",
+   "think": "Begin with the easy side: work out 4 × 2 × 5 first."
+  },
+  {
+   "skill": "Slicer",
+   "ch": 6,
+   "q": 5,
+   "text": "Using the digits 1, 2, 3 and 4, form the highest and the smallest three-digit numbers that each contain exactly two different digits. What is the sum of the two numbers?",
+   "think": "Split it into two jobs: build the highest number, then the smallest. Add them at the end."
+  },
+  {
+   "skill": "Echo",
+   "ch": 4,
+   "q": 4,
+   "text": "The sum of the ages of four people A, B, C and D is 35. Each of them is at least 8 years old. What is the MAXIMUM possible age of the oldest person?",
+   "think": "Say it simply: “To make one person as old as possible, how old should the other three be?”"
+  },
+  {
+   "skill": "Vault",
+   "ch": 7,
+   "q": 1,
+   "text": "An equilateral triangle and a square have sides of the same length. What can you say about the areas of the two shapes?",
+   "think": "I know the triangle can fit inside the square. Draw them on the same side to see."
+  },
+  {
+   "skill": "Roots",
+   "ch": 6,
+   "q": 6,
+   "text": "A 2-digit number has two different digits. Reversing its digits makes another 2-digit number. Which can the difference between the two numbers NOT be: even, odd, prime, or a whole number?",
+   "think": "Try 21 − 12 and 41 − 14. Ask why every difference is a multiple of 9."
+  },
+  {
+   "skill": "Translator",
+   "ch": 3,
+   "q": 1,
+   "text": "Two decimal numbers differ by 3.6. Moving the decimal point one place to the right in one of them makes the two numbers equal. Which was the smaller number?",
+   "think": "Write it in numbers: if the smaller is n, the bigger is 10 × n. Their difference is 3.6."
+  }
+ ],
+ "backcover_intro": "In Class 7, children take Computational Thinking further: reading large numbers, building and testing expressions, and reasoning through puzzles one clue at a time. These are not just computer skills. They are thinking skills for every subject."
+}
