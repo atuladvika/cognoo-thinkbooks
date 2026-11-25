@@ -1,0 +1,126 @@
+/* Chapter pages (opener, questions, supplementary). Sizes in pt, measured from the Class 3 v9 book. */
+.ch{position:absolute;inset:0;font-family:'Poppins';color:#1e436d}
+.ch b{font-weight:700}
+.col{position:absolute;left:48.4pt;width:516pt}
+/* bands */
+.band{position:absolute;left:-0.3pt;width:613.6pt;top:75pt;background:#1e436d;color:#fff}
+.band .kick{position:absolute;left:48.7pt;font-size:7.87pt;font-weight:700;color:#00cfb4;letter-spacing:.32em;line-height:11pt;white-space:nowrap}
+.band .ttl{position:absolute;left:48.4pt;font-weight:700;white-space:nowrap}
+.band .sub{position:absolute;left:48.7pt;font-size:8.62pt;line-height:12.7pt;color:#d6f7f3}
+.band .pill{position:absolute;background:#00cfb4;color:#1e436d;border-radius:20pt;font-size:9.37pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+.qrcard{position:absolute;background:#fff;border:1.6pt solid #007fa3;border-radius:7pt;box-sizing:border-box;text-align:center}
+.qrcard img{display:block;margin:0 auto}
+.qrcard .cap{font-size:5.5pt;font-weight:700;line-height:6.6pt;color:#1e436d}
+.play{position:absolute;width:14.4pt;height:14.4pt}
+.qrsq{position:absolute;background:#fff;border:1.4pt solid #00cfb4;border-radius:5pt;box-sizing:border-box;padding:2pt}
+.qrsq img{width:100%;height:100%;display:block}
+/* section headings */
+.sec{position:absolute;left:48.4pt;height:19.5pt;display:flex;align-items:center;white-space:nowrap}
+.sec .n{width:19.5pt;height:19.5pt;border-radius:50%;background:#1e436d;color:#fff;font-size:9.74pt;font-weight:700;display:flex;align-items:center;justify-content:center;margin-right:7.5pt}
+.sec .t{font-size:13.12pt;font-weight:700;margin-right:10pt}
+.sec .s{font-size:7.49pt;color:#007fa3;padding-top:1.5pt}
+/* question blocks */
+.flow{position:absolute;left:48.4pt;width:516pt}
+.q{position:relative;padding-left:28.5pt;margin-bottom:19.5pt}
+.q .num{position:absolute;left:0;top:-.9pt;width:21pt;height:21pt;border-radius:50%;background:#1e436d;color:#fff;font-size:10.12pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+.q .qt{font-size:9.14pt;font-weight:700;line-height:13.6pt}
+.q .qt ul{margin:0;padding-left:13.5pt}
+.q .qt li{margin:0}
+.q .note{font-size:8.24pt;font-style:italic;color:#007fa3;line-height:12pt}
+.q .note b{font-style:italic}
+.q .qid{position:absolute;right:0;top:2.1pt;font-size:6.44pt;color:#007fa3}
+.q.sup{margin-bottom:16.5pt}
+.q.sup .qt{padding-right:52pt}
+.fig{margin:6pt 0 2pt;display:flex;align-items:flex-end;gap:14pt;flex-wrap:wrap}
+.fig img{display:block}
+.opts{position:relative;display:flex;align-items:center;height:20pt;margin-top:4pt}
+.opts .o{width:105pt;font-size:9.14pt;white-space:nowrap}
+.opts .o i.lt{font-style:normal;font-weight:700;color:#007fa3}
+.opts .o i:not(.lt){font-style:italic;font-weight:400;color:inherit}
+.opts.img{height:auto;align-items:flex-end}
+.opts.img .o{display:flex;align-items:flex-end;gap:3pt}
+.opts.img .o i.lt{font-size:7pt;font-weight:400;color:#1e436d;line-height:9pt}
+.myans{position:absolute;right:0;bottom:1.5pt;display:flex;align-items:center;gap:5pt;font-size:7.49pt;font-weight:500;color:#007fa3}
+.myans span{display:block;width:21.7pt;height:17.2pt;border:.75pt solid #1e436d;border-radius:5pt;box-sizing:border-box}
+.opts .wide{width:auto;margin-right:26pt}
+/* Dyna Thinking Coach box */
+.dyna{margin-top:6pt;background:#d6f7f3;border-left:1.9pt solid #00cfb4;border-radius:0 7pt 7pt 0;padding:3.5pt 10.5pt 5.5pt 14.3pt}
+.dyna .hd{display:flex;align-items:center;gap:6pt;font-size:9.37pt;font-weight:700;color:#007fa3;height:16.5pt}
+.dyna .row{display:flex;border-top:.75pt dashed #c8d3d6;padding:4.5pt 0 4.5pt}
+.dyna .sk{width:106.5pt;display:flex;gap:4.5pt;flex:none;padding-right:4pt;box-sizing:border-box}
+.ico{width:21pt;height:21pt;flex:none;background:#fff;border-radius:4.5pt;position:relative}
+.ico img{position:absolute;inset:0;width:100%;height:100%}
+.dyna .sk .nm{font-size:8.24pt;font-weight:700;line-height:10pt;padding-top:.6pt}
+.dyna .sk .tg{font-size:6.28pt;color:#007fa3;line-height:7.5pt}
+.dyna .gd{font-size:8.09pt;line-height:11.7pt;flex:1}
+.yt{display:flex;align-items:flex-start;border-top:.75pt dashed #c8d3d6;padding-top:5pt}
+.yt .pill{flex:none;width:58.5pt;height:11.3pt;border-radius:8pt;background:#00cfb4;font-size:7.12pt;font-weight:700;letter-spacing:.12em;display:flex;align-items:center;justify-content:center;margin-right:5.8pt;margin-top:.4pt}
+.yt .tx{font-size:8.17pt;font-weight:700;line-height:11.4pt}
+/* thinking hint (supplementary) */
+.hint{display:flex;gap:6pt;margin-top:6pt;align-items:stretch}
+.hint .lab{width:43.5pt;flex:none;background:#1e436d;border-radius:6pt;color:#00cfb4;font-size:7.19pt;font-weight:700;line-height:9pt;display:flex;align-items:center;justify-content:center;text-align:center}
+.hint .card{flex:1;background:#d6f7f3;border-radius:6pt;display:flex;gap:6pt;padding:5.3pt 6pt 5.3pt 5.3pt;align-items:center}
+.hint .card .ico{width:22.5pt;height:22.5pt}
+.hint .card .nm{font-size:8.24pt;font-weight:700;line-height:10pt}
+.hint .card .qq{font-size:7.34pt;line-height:9.8pt}
+/* thinking space */
+.space{position:relative;border:.75pt dashed #cccccc;border-radius:8pt;background-image:radial-gradient(#cccccc .55pt,transparent .7pt);background-size:9pt 9pt;background-position:4.5pt 4.5pt}
+.space .lab{position:absolute;left:14pt;top:8pt;font-size:7.49pt;font-weight:700;color:#007fa3;letter-spacing:.25em;background:#fff;padding:0 3pt}
+/* opener */
+.know{position:absolute;width:255pt;height:33pt;border:.75pt solid #cccccc;border-radius:6pt;box-sizing:border-box;padding:4.4pt 8pt 0 26pt;font-size:7.79pt;line-height:11.3pt}
+.know .tick{position:absolute;left:9pt;top:7.5pt;width:9.75pt;height:9.75pt;border:.75pt solid #1e436d;border-radius:2pt;box-sizing:border-box}
+.panel{position:absolute;border:.75pt solid #cccccc;border-radius:8pt;box-sizing:border-box}
+.bar{position:absolute;height:11.2pt;border-radius:0 3pt 3pt 0}
+.chip{display:inline-block;background:#d6f7f3;border-radius:7pt;font-size:6.97pt;line-height:13.5pt;padding:0 6.5pt;margin:0 3.7pt 3.7pt 0;white-space:nowrap}
+.tile{position:absolute;width:69pt;height:92.2pt;border-radius:6pt;box-sizing:border-box;text-align:center}
+.tile .ico{position:absolute;left:22.1pt;top:6.3pt;width:25.5pt;height:25.5pt}
+.tile .nm{position:absolute;left:0;right:0;top:34pt;font-size:8.62pt;font-weight:700;line-height:12pt}
+.tile .ct{position:absolute;left:0;right:0;top:48.3pt;font-size:7.87pt;font-weight:700;line-height:11pt}
+.tile .tg{position:absolute;left:3pt;right:3pt;top:60.5pt;font-size:6.44pt;line-height:8.3pt}
+.cell{position:absolute;width:69pt;height:45.8pt;border:.75pt solid #cccccc;border-radius:6pt;box-sizing:border-box}
+.cell .qn{position:absolute;left:5.6pt;top:4.2pt;font-size:7.87pt;font-weight:700}
+.cell .r{position:absolute;left:4pt;display:flex;align-items:center;gap:5pt;font-size:7.03pt}
+.cell .r .ico{width:12.5pt;height:12.5pt;border-radius:2.5pt;border:.5pt solid #cccccc;box-sizing:border-box}
+.routine{position:absolute;top:109.5pt;width:124.5pt;height:75pt;background:#1e436d;border-radius:7pt;box-sizing:border-box;padding:9.5pt 10.5pt 0}
+.routine .w{font-size:14.99pt;font-weight:700;color:#00cfb4;line-height:21pt}
+.routine .d{font-size:7.94pt;line-height:11.2pt;color:#fff;margin-top:3.2pt}
+table.watch{position:absolute;border-collapse:separate;border-spacing:0;border:.75pt solid #007fa3;border-radius:7pt;overflow:hidden;font-size:7.94pt;line-height:10.5pt}
+table.watch th{background:#1e436d;color:#00cfb4;font-size:8.24pt;font-weight:700;text-align:left;height:24.8pt;padding:0 9pt}
+table.watch td{padding:5.5pt 9pt;vertical-align:middle;border-top:.75pt solid #fff}
+table.watch tr:nth-child(odd) td{background:#d6f7f3}
+table.watch td:first-child{font-weight:700;white-space:nowrap}
+.tryone{position:absolute;border:1.5pt solid #007fa3;border-radius:10pt;box-sizing:border-box;padding:9pt 13.5pt 0}
+.mini{position:absolute;height:57pt;background:#d6f7f3;border-radius:7pt;box-sizing:border-box;padding:7.5pt 10.5pt}
+.mini .h{font-size:9.37pt;font-weight:700;color:#007fa3;line-height:13pt}
+.mini .x{font-size:8.09pt;line-height:12pt;margin-top:3pt}
+/* thinking spot */
+.spot{border:1.5pt solid #007fa3;border-radius:12pt;padding:10pt 12pt 9pt 13pt;margin-bottom:12pt}
+.spot .h{display:flex;align-items:center;gap:7pt;font-size:12pt;font-weight:700;color:#1e436d;margin-bottom:6pt}
+.spot .qt{font-size:9.14pt;font-weight:700;line-height:13.6pt}
+.spot .qt ul{margin:0;padding-left:13.5pt}
+.mono{font-family:'DejaVu Sans Mono'}
+/* supplementary */
+.goonline{position:absolute;left:49.2pt;top:144.7pt;width:514.5pt;height:69.8pt;border:1.5pt solid #00cfb4;border-radius:9pt;background:#d6f7f3;box-sizing:border-box}
+.howdid{border:1.5pt solid #007fa3;border-radius:10pt;padding:10pt 14pt;position:relative}
+.howdid .h{font-size:11.2pt;font-weight:700;color:#007fa3;margin-bottom:6pt}
+.howdid .l{font-size:8.2pt;line-height:18.5pt}
+.howdid .dash{display:inline-block;border-bottom:.75pt dashed #1e436d;height:9pt;vertical-align:-1pt}
+/* JEE maths additions */
+.mx{display:block;font-size:11pt;font-weight:400;line-height:18pt;margin:4pt 0 0 0}
+.mx i, .opts i.v{font-style:italic}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.82em;line-height:1.05;margin:0 1.5pt}
+.frac span:first-child{border-bottom:.7pt solid currentColor;padding:0 2pt}
+.opts .o .frac{font-size:.78em}
+.hdr2{position:absolute;top:35.3pt;right:48.7pt;font-family:'Poppins';font-weight:500;font-size:8.62pt;color:#1e436d;line-height:11pt;white-space:nowrap}
+.qrph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3pt;border:1pt dashed #007fa3;border-radius:4pt;box-sizing:border-box;margin:0 auto;font-size:5.4pt;font-weight:700;line-height:6.6pt;color:#007fa3;text-align:center}
+.wline{display:flex;align-items:flex-end;gap:6pt;margin-top:6pt;height:18pt}
+.wline .wl-l{font-size:7.49pt;font-weight:500;color:#007fa3;white-space:nowrap}
+.wline .dash{flex:1;border-bottom:.8pt dashed #1e436d;height:12pt}
+.parts{display:grid;grid-template-columns:1fr 1fr;column-gap:16pt;row-gap:2pt;margin-top:4pt}
+.part{display:grid;grid-template-columns:12pt 1fr;align-items:center;column-gap:4pt;font-size:10pt;line-height:16pt}
+.part .lt{font-style:normal;font-weight:700;color:#007fa3}
+.part .wl{grid-column:2;display:flex;align-items:flex-end;gap:5pt;height:15pt}
+.part .wl span:first-child{font-size:7pt;font-weight:500;color:#007fa3}
+.part .wl .dash{flex:1;border-bottom:.8pt dashed #1e436d;height:10pt}
+.mod{display:inline-flex;align-items:center;border-left:.9pt solid currentColor;border-right:.9pt solid currentColor;padding:0 2.5pt;margin:0 1.5pt;line-height:1.15}
+.sim{display:inline-flex;flex-direction:column;line-height:1.35}
