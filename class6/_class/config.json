@@ -1,0 +1,98 @@
+{
+ "class": 6,
+ "template_pdf": "/home/claude/tb/out/Class3_CT_ThinkBook_Ch1_v9.pdf",
+ "chapters": [
+  "Patterns in Mathematics",
+  "Lines and Angles",
+  "Number Play",
+  "Data Handling and Presentation",
+  "Prime Time",
+  "Perimeter and Area",
+  "Fractions",
+  "Playing with Constructions",
+  "Symmetry",
+  "The Other Side of Zero"
+ ],
+ "built": {
+  "1": 10
+ },
+ "first_chapter": "Patterns in Mathematics",
+ "last_chapter": "The Other Side of Zero",
+ "mock": {
+  "title": "CHAPTER 1 · PATTERNS IN MATHEMATICS",
+  "question": [
+   [
+    "Find the ",
+    false
+   ],
+   [
+    "wrong",
+    true
+   ],
+   [
+    " term: 2, 3, 6, 11, 18, 25, 38, 51, 66, 83",
+    false
+   ]
+  ],
+  "options": [
+   "a) 11",
+   "b) 25",
+   "c) 51",
+   "d) 66"
+  ],
+  "option_gap": 26
+ },
+ "concept": "Number Series",
+ "tryit": [
+  {
+   "skill": "Bridge",
+   "ch": 2,
+   "q": 7,
+   "text": "How many times in a day, on a 12-hour clock, do the minute and hour hands form a straight line (an angle of 180°)?",
+   "think": "Picture a real clock at 6:00. The hands make a straight line. When does it happen next?"
+  },
+  {
+   "skill": "Starter",
+   "ch": 3,
+   "q": 6,
+   "text": "Amat and Ankit each pick 3 different numbers from {1, 2, 3, 4, 5, 6}. Amat's sum is the highest possible, Ankit's the second highest. Which two numbers did both pick?",
+   "think": "Start with Amat: which three numbers give the highest sum?"
+  },
+  {
+   "skill": "Slicer",
+   "ch": 3,
+   "q": 1,
+   "text": "Sachin rolls a die until 6 appears three times. Each roll scores the number shown, and his total is 29. What is the minimum number of rolls he could have made?",
+   "think": "Split it: three 6s give 18 points. How much is left, and how few rolls can make it?"
+  },
+  {
+   "skill": "Echo",
+   "ch": 5,
+   "q": 3,
+   "text": "The sum of three consecutive natural numbers is Y. Which number will Y always be divisible by?",
+   "think": "Say it simply: “Add any three numbers in a row. What always divides the total?”"
+  },
+  {
+   "skill": "Vault",
+   "ch": 5,
+   "q": 2,
+   "text": "X is the sum of two or more DIFFERENT single-digit prime numbers. Which option CANNOT be a value of X?",
+   "think": "I know the single-digit primes: 2, 3, 5 and 7. Which totals can they make?"
+  },
+  {
+   "skill": "Roots",
+   "ch": 5,
+   "q": 8,
+   "text": "X is the product of 2 single-digit prime numbers. Which statement is ALWAYS TRUE about X?",
+   "think": "Ask why a statement could fail. Test it on the smallest and the biggest products, 2 × 2 and 7 × 7."
+  },
+  {
+   "skill": "Translator",
+   "ch": 5,
+   "q": 4,
+   "text": "A two-digit number is 1 more than a multiple of 3. How many different possible values can it have?",
+   "think": "Write the list: 10, 13, 16, … up to the largest two-digit one. Now count the steps of 3."
+  }
+ ],
+ "backcover_intro": "In Class 6, children take Computational Thinking further: finding the rule behind number and shape patterns, testing ideas step by step and explaining why a method works. These are not just computer skills. They are thinking skills for every subject."
+}

@@ -9,6 +9,7 @@ One folder per class; each is built with `python3 make.py <output.pdf>` from ins
 | `class3/` | Class 3, Chapter 1 sample | v9 (24 Nov 2026) |
 | `class4/` | Class 4, Chapter 1 | v1 (24 Nov 2026) |
 | `class5/` | Class 5, Chapter 1 | v1 (24 Nov 2026, for review) |
+| `class6/` | Class 6, Chapter 1 | v1 (25 Nov 2026, for review) |
 
 - `inputs/classN/` (not in Git) holds each class's handbooks and QR exports.
 - `print/` (not in Git) holds the built PDFs and source zips sent to print.
