@@ -2,7 +2,7 @@
 Source exercise: Cambridge IGCSE & O Level Additional Mathematics Coursebook, Chapter 1, Exercise 1.1 (p. 3).
 Answers (checked by hand, never printed): Q1 one-one, Q2 many-one, Q3 one-one, Q4 one-one, Q5 one-one,
 Q6 one-one, Q7 one-one, Q8 one-many.
-Supplementary answers: see the SUPP comment below (never printed)."""
+Supplementary: see the SUPP comment below (answers never printed)."""
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_class'))
 from glyphs_svg import MAP, TO, IN, R, sym
@@ -19,7 +19,7 @@ XR = f'{x} {IN} {R}'
 CH = dict(
     num=1, title='Functions', first_page=10, exercise='Exercise 1.1', lecture_label='Exercise 1.1',
     subject='Cambridge IGCSE &amp; O Level Additional Mathematics',
-    lecture_qr='CGN000023', dyna_qr=None,   # lecture QR issued 26 Nov 2026; Dyna QR not issued yet (placeholder)
+    lecture_qr='CGN000023', dyna_qr='CGN000024',   # lecture QR issued 26 Nov 2026; CGN000024 = Chapter 1 Cognoo pathway (all exercises), issued 26 Nov 2026
     count_line='Exercise 1.1 · 8 questions · One-one, many-one and one-many mappings · Goes with Chapter 1 of your Additional Mathematics Coursebook',
 )
 
@@ -27,7 +27,7 @@ KNOW = [
     f'<b>Mapping notation:</b> {x} {MAP} {x} + 1 is read “{x} is mapped to {x} + 1”. So 3 {MAP} 4.',
     f'<b>The domain:</b> {XR} means any real number. “{x} &gt; 0” keeps only positive inputs.',
     f'<b>Table of values:</b> for {x}<sup>2</sup>, the inputs −1, 0, 1 give the outputs 1, 0, 1.',
-    f'<b>Line tests:</b> on a graph, a horizontal line shows inputs that share one output; a vertical line shows outputs of one input.',
+    f'<b>Line tests:</b> a horizontal line finds inputs that share an output; a vertical line finds the outputs of one input.',
 ]
 
 # Main STCA concept of each question (STCA Engg/Med Mathematics: Topic 1 Ch 6 Relation and Functions; Topic 2 Ch 1 Functions)
@@ -38,7 +38,7 @@ BARS = [
     ('Domain and Range', 'which inputs are allowed', 1, '#05ccab', 'Q 6'),
     ('Relation and its Type', 'a rule that may give two outputs', 1, '#05ccab', 'Q 8'),
 ]
-BARS_TITLE = 'STCA concepts this exercise tests'
+BARS_TITLE = 'Concepts this exercise tests'
 ALSO = ['One-One (Injective) Functions · Q 1 to 7', 'Definition of a Function · Q 8', 'Domain and Range · Q 5, 7',
         'Graphing Transcendental · Q 4', 'Square Root as Inverse of Square · Q 2, 6']
 
@@ -114,37 +114,25 @@ Q = [
 ]
 SPOT = None
 
-# Supplementary: 10 questions from the i2K / Dynamind bank "Relation and Functions Obj" (Engg/Med Entrance),
-# wording and options as in the bank, Q-IDs read from the report. Bank answers (never printed):
-# 50129 B, 142578 C, 142543 C, 47851 D, 142568 C, 73199 B, 73377 A, 73364 C, 91726 A, 73383 B.
-f_ = '<i>f</i>'
+# Supplementary (rule set by Atul, 26 Nov 2026): print only bank questions that are of comparable hardness to the
+# coursebook questions AND well within the scope of the text before the exercise (Section 1.1: mapping diagrams,
+# x ↦ notation, one-one / many-one / one-many read from a rule or a graph). Fewer than 10 is fine.
+# Both banks searched (Relation and Functions Obj; 1_Functions_Obj). Only one question qualifies:
+# 142578 C (L2; one-one test on four familiar graphs ~ Q 2, 3, 4). Bank answer checked by hand, never printed.
+# Left out as outside Section 1.1 or harder: questions using onto / into / surjective / bijective (e.g. 47851, 142962,
+# 47828, 91586, 73176, 64187, 80338), "is a function" (50129, 142926: Section 1.2), domain / range (50125, 50140: Section 1.2),
+# counting maps (142568), 91618 (level 6, injective on restricted domains), 143007 (same as 142578), 73350 (two true options).
 SUPP = [
- dict(n=1, qid='50129', text='Which of the following relations is function?',
-      opts=['{(a, 1), (a, 2), (b, 3), (c, 4)}', '{(a, 2), (b, 3), (c, 4)}', '{(a, 3), (b, 1), (a, 4), (b, 2)}', 'None of these'], hint=['Echo', 'Vault']),
- dict(n=2, qid='142578', text='Which of the following functions defined from R to R are one-one.',
-      opts=['f(x) = |x|', 'f(x) = cos x', 'f(x) = e<sup>x</sup>', 'f(x) = x<sup>2</sup>'], raw=True, hint=['Translator', 'Roots']),
- dict(n=3, qid='142543', text=f'If {f_} : R {TO} R , {f_}(x) = sin<sup>2</sup> x + cos<sup>2</sup> x , then {f_} is -',
-      opts=['one-one but not onto', 'onto but not one-one', 'neither one-one nor onto', 'both one-one onto'], hint=['Slicer', 'Vault']),
- dict(n=4, qid='47851', text=f'Let R be the set of real numbers. If {f_} : R {TO} R is a function defined by {f_}(x) = x<sup>2</sup>, then {f_} is:',
-      opts=['injective but not surjective', 'surjective but not injective', 'bijective', 'none of the above'], hint=['Starter', 'Vault']),
- dict(n=5, qid='142568', text='Set A has 3 elements and set B has 4 elements. The number of injections that can be defined from A to B is -',
-      opts=['144', '12', '24', '64'], hint=['Slicer', 'Bridge']),
- dict(n=6, qid='73199', text=f'Let S be the set of all triangles and R<sup>+</sup> be the set of positive real numbers. Then the function, {f_} : S {TO} R<sup>+</sup>, {f_}({DELTA}) = area of the {DELTA}, where {DELTA} {IN} S is',
-      opts=['injective but not surjective', 'surjective but not injective', 'injective as well as surjective', 'neither injective nor surjective'], hint=['Bridge', 'Echo']),
- dict(n=7, qid='73377', text=f'Let {f_}(x) = {fr("x", "1 + x")} defined from (0, ∞) {TO} [0, ∞) then by {f_}(x) is',
-      opts=['one-one but not onto', 'one-one and onto', 'Many one but not onto', 'Many one and onto'], hint=['Translator', 'Roots']),
- dict(n=8, qid='73364', text=f'For real x, let {f_}(x) = x<sup>3</sup> + 5x + 1, then -',
-      opts=['f is one-one but not onto R', 'f is onto R but not one-one', 'f is one-one and onto R', 'f is neither one-one nor onto R'], hint=['Roots', 'Starter']),
- dict(n=9, qid='91726', text=f'Let function {f_} : R {TO} R be defined by {f_}(x) = 2x + sin x for x {IN} R. Then {f_} is–',
-      opts=['one to one and onto', 'one to one but not onto', 'onto but not one to one', 'neither one to one nor onto'], hint=['Roots', 'Slicer']),
- dict(n=10, qid='73383', text=f'The function {f_} : [0, 3] {TO} [1, 29], defined by {f_}(x) = 2x<sup>3</sup> − 15x<sup>2</sup> + 36x + 1, is',
-      opts=['one-one and onto', 'onto but not one-one', 'one-one but not onto', 'neither one-one nor onto'], hint=['Slicer', 'Translator']),
+ dict(n=1, qid='142578', text='Which of the following functions defined from R to R are one-one.',
+      opts=['f(x) = |x|', 'f(x) = cos x', 'f(x) = e<sup>x</sup>', 'f(x) = x<sup>2</sup>'], raw=True,
+      hint=[('Translator', 'For each option, put in a pair of opposite inputs, such as 1 and −1, and compare the outputs.'),
+            ('Bridge', 'Waves on the sea rise to the same height again and again. Does the graph of cos x do the same?')]),
 ]
 
 PAGES = [
     ('opener1',), ('opener2',),
     ('questions', [1, 2], True, 'space'), ('questions', [3, 4, 5], False, 'space'), ('questions', [6, 7, 8], False, 'spaceqr'),
-    ('supp', [1, 2, 3, 4], True, 'space'), ('supp', [5, 6, 7], False, 'space'), ('supp', [8, 9, 10], False, 'howdid+space'),
+    ('supp', [1], True, 'howdid+space'),
 ]
 
 # Opener panel: the three kinds of mapping (definitions in plain words; mini graphs drawn as SVG)

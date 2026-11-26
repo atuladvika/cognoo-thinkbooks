@@ -5,8 +5,7 @@ Q1 a -8/3, 4; b -7, -2; c 4/5, 8/5; d -23, 25; e -5, -2; f -1/2, 15/2; g 16, 24;
 Q2 a -29/6, -19/10; b -4/5, 0; c -28/5, 4; d 3/4, 7/2; e 13/2; f 10/3.
 Q3 a -2, 2; b -3, 3; c -3, -1, 2; d 0, 4, 6; e -2, 1, 3; f -2, -1, 0, 3; g 1/2, 1; h -1, 2; i 0, 2, 6.
 Q4 a (-4, 0), (3, 7), (5, 9); b (0, 0), (1, 1), (2, 2); c (1, 3), (5/2, 15/2).
-Supplementary: not chosen yet. The Relation and Functions bank has no modulus-equation questions;
-the 10 questions will come from the bank chapter on equations and inequations (Algebra)."""
+Supplementary: see the SUPP comment below (answers never printed)."""
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_class'))
 from glyphs_svg import MAP, TO, IN, R, sym
@@ -25,7 +24,7 @@ XA = f'{x} ='
 CH = dict(
     num=1, title='Functions', first_page=42, exercise='Exercise 1.4',
     subject='Cambridge IGCSE &amp; O Level Additional Mathematics',
-    lecture_qr=None, dyna_qr=None,   # QR Manager codes not issued yet: placeholders are printed
+    lecture_qr=None, dyna_qr='CGN000024',   # lecture QR not issued yet (placeholder); CGN000024 = Chapter 1 Cognoo pathway, issued 26 Nov 2026
     count_line='Exercise 1.4 · 4 questions, 27 parts · Modulus equations · Goes with Chapter 1 of your Additional Mathematics Coursebook',
 )
 
@@ -42,8 +41,8 @@ BARS = [
     ('Other Algebraic Equations', 'with fractions and x outside', 2, '#05ccab', 'Q 2 a–c, d–f'),
     ('Geometrical Representation', 'where two graphs meet', 1, '#05ccab', 'Q 4'),
 ]
-BARS_TITLE = 'STCA concepts this exercise tests'
-BARS_SUB = 'Main STCA concept of each of the 9 question blocks'
+BARS_TITLE = 'Concepts this exercise tests'
+BARS_SUB = 'Main concept of each of the 9 question blocks'
 ALSO = ['Solution of Quadratic Equations · Q 3, 4', 'Rational Function · Q 2 a–c', 'Extraneous Roots · Q 1 i, Q 2 d–f, Q 4',
         'Graphing Piecewise Functions · Q 4', 'Modulus Function · Q 2, 3, 4']
 
@@ -130,10 +129,38 @@ Q = [
 ]
 SPOT = None
 
-SUPP = []   # to be filled from the question bank (equations and inequations chapter)
+# Supplementary (Atul's rules, 26 Nov 2026): only bank questions within the scope of the coursebook text before the
+# exercise (Section 1.4, with Sections 1.1 to 1.3 before it: the modulus is the size of a number without its sign and is
+# never negative; |x| = k means x = k or x = -k; |ax + b| = cx + d and checking answers) and of comparable hardness.
+# Fewer than 10 is fine. Neither bank has a modulus EQUATION at this level, so these four use the modulus definition
+# (values, a range, an identity); they are a little easier than the exercise.
+# Banks: "Relation and Functions Obj" (74865) and "1_Functions_Obj" (87577, 74864, 87579).
+# Wording and options exactly as in the bank; Q-IDs read from the report pages.
+# Bank answers (never printed), each checked by hand: 74865 B (|-4| + 2 = 6), 87577 B ((-1 - 1)/1 = -2),
+# 74864 D (-|x| <= 0, so the negative reals with 0), 87579 B (4x + 2|x| - 2x + |x| - 2x - |x| = 2|x|).
+# Left out: 47696 (|f + g| = |f| + |g| for x <= -1 or x >= 2; the bank answer (2, inf) is incomplete, and it is an
+# inequality), 47850 and 47689 (inequalities / parameters, harder), modulus with trig, logs or the greatest-integer function,
+# relations (74645, 85397, 88772), 64196 (bijective, Section 1.1 scope).
+CUP = sym('∪', 0.95)
+SUPP = [
+ dict(n=1, qid='74865', text='If f(x) = |x − 3| + 2 then f(−1) =', opts=['2', '6', '−6', '0'],
+      hint=[('Starter', 'Begin inside the modulus: work out −1 − 3 first.'),
+            ('Vault', 'Recall from Section 1.4: the modulus of a number is its size without the sign, so it is never negative.')]),
+ dict(n=2, qid='87577', text=f'If <i>f</i>(x) = {fr("x − | x |", "| x |")}, then <i>f</i>(−1) =', opts=['1', '−2', '0', '+2'], raw=True,
+      hint=[('Translator', 'Put x = −1 in every place: the top becomes −1 − |−1| and the bottom becomes |−1|.'),
+            ('Echo', 'Say |−1| aloud as “the size of −1”. What number is that?')]),
+ dict(n=3, qid='74864', text='The range of −|x| is', opts=['−R', 'N', 'W', f'−R {CUP} {{0}}'], raw=True,
+      hint=[('Roots', 'Ask why |x| is never negative. What does the minus sign in front then do to every output?'),
+            ('Bridge', 'Think of depths measured from sea level: 0 m or below, never above. (−R means all the negative real numbers.)')]),
+ dict(n=4, qid='87579', text=f'Let <i>f</i> : <i>R</i> {TO} <i>R</i> be defined by <i>f</i>(x) = 2x + |x|, then <i>f</i>(2x) + <i>f</i>(−x) − <i>f</i>(x) =',
+      opts=['2<i>x</i>', '2|<i>x</i>|', '−2<i>x</i>', '−2|<i>x</i>|'], raw=True,
+      hint=[('Slicer', 'Work out each part on its own: f(2x), then f(−x), then f(x). Then add and subtract.'),
+            ('Vault', 'Use two facts: |2x| = 2|x| and |−x| = |x|. Then collect the x terms and the |x| terms.')]),
+]
 
 PAGES = [
     ('opener1',), ('opener2',),
     ('questions', [1, 2], True), ('questions', [3, 4, 5]), ('questions', [6, 7, 8]),
     ('questions', [9], False, 'spaceqr'),
+    ('supp', [1, 2, 3], True, 'space'), ('supp', [4], False, 'howdid+space'),
 ]

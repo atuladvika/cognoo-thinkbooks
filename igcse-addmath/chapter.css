@@ -124,3 +124,8 @@ table.watch td:first-child{font-weight:700;white-space:nowrap}
 .part .wl .dash{flex:1;border-bottom:.8pt dashed #1e436d;height:10pt}
 .mod{display:inline-flex;align-items:center;border-left:.9pt solid currentColor;border-right:.9pt solid currentColor;padding:0 2.5pt;margin:0 1.5pt;line-height:1.15}
 .sim{display:inline-flex;flex-direction:column;line-height:1.35}
+
+/* supplementary hint written for the question */
+.hint .card.tx{align-items:flex-start}
+.hint .card.tx .ico{margin-top:1pt}
+.hint .card .nm .tg{font-size:6.28pt;font-weight:400;color:#007fa3}

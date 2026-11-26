@@ -4,8 +4,7 @@ Answers (checked by hand, never printed):
 Q1 mappings 1 to 7 of Exercise 1.1 are functions (8 is one-many, not a function).
 Q2 a −7 ≤ f(x) ≤ 2; b 2 ≤ f(x) ≤ 17; c −1 ≤ f(x) ≤ 9; d 0 ≤ f(x) ≤ 9; e 1/8 ≤ f(x) ≤ 8; f 1/5 ≤ f(x) ≤ 1.
 Q3 g(x) ≥ 2; Q4 f(x) ≥ −4; Q5 f(x) ≥ 5; Q6 f(x) ≥ −5; Q7 −6 ≤ f(x) ≤ 10; Q8 f(x) ≥ 3.
-Supplementary (bank answers, never printed): 142505 C, 74865 B, 142929 B, 74647 C, 74646 D, 74648 C,
-91584 B, 73357 D, 91617 C, 91719 D."""
+Supplementary: see the SUPP comment below (answers never printed)."""
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_class'))
 from glyphs_svg import MAP, TO, IN, R, sym
@@ -25,15 +24,15 @@ LE = '≤'; GE = '≥'
 CH = dict(
     num=1, title='Functions', first_page=18, exercise='Exercise 1.2',
     subject='Cambridge IGCSE &amp; O Level Additional Mathematics',
-    lecture_qr=None, dyna_qr=None,   # QR Manager codes not issued yet: placeholders are printed
+    lecture_qr=None, dyna_qr='CGN000024',   # lecture QR not issued yet (placeholder); CGN000024 = Chapter 1 Cognoo pathway, issued 26 Nov 2026
     count_line='Exercise 1.2 · 8 questions (Q 2 has 6 parts) · Definition of a function, domain and range · Goes with Chapter 1 of your Additional Mathematics Coursebook',
 )
 
 KNOW = [
-    '<b>Function:</b> each input has exactly one output. One-one and many-one mappings are functions; one-many is not.',
+    '<b>Function:</b> exactly one output for each input. One-one and many-one are functions; one-many is not.',
     f'<b>Domain and range:</b> the inputs and the outputs. For f({x}) = 2{x}, 1 {LE} {x} {LE} 3, the range is 2 {LE} f({x}) {LE} 6.',
     f'<b>Completing the square:</b> {x}<sup>2</sup> − 6{x} + 11 = ({x} − 3)<sup>2</sup> + 2. A square is never negative.',
-    '<b>Rising or falling:</b> if a graph only rises (or only falls) on an interval, its end points give the smallest and largest outputs.',
+    '<b>Rising or falling:</b> if a graph only rises or only falls, its end points give the smallest and largest outputs.',
 ]
 
 BARS = [
@@ -43,8 +42,8 @@ BARS = [
     ('Definition of a Function', 'one output for each input', 1, '#05ccab', 'Q 1'),
     ('Square Root Function', 'the non-negative root', 1, '#05ccab', 'Q 8'),
 ]
-BARS_TITLE = 'STCA concepts this exercise tests'
-BARS_SUB = 'Main STCA concept of each of the 9 question blocks (Q 2 is split in two)'
+BARS_TITLE = 'Concepts this exercise tests'
+BARS_SUB = 'Main concept of each of the 9 question blocks (Q 2 is split in two)'
 ALSO = ['Domain and Range · Q 3 to 8', 'Quadratic Expression as Parabolic Curve · Q 2 d, 3, 4', 'Exponential Function · Q 2 e',
         'Rational Function · Q 2 f', 'One-One (Injective) Functions · Q 1']
 
@@ -126,34 +125,47 @@ Q = [
 ]
 SPOT = None
 
-# Supplementary: 10 questions from the i2K / Dynamind bank "Relation and Functions Obj" (Engg/Med Entrance),
-# wording and options as in the bank, Q-IDs read from the report.
-th = TH
+# Supplementary (Atul's rules, 26 Nov 2026): only bank questions within the scope of the coursebook text before the
+# exercise (Section 1.2: a function gives each input one output; f(x) notation and finding values; domain; range
+# (image set), read from a sketch, including quadratics with a lowest point) and of comparable hardness. Fewer than 10 is fine.
+# Banks: "Relation and Functions Obj" (50129, 142505, 142933) and "1_Functions_Obj" (50125, 74868, 50140).
+# Wording and options exactly as in the bank; Q-IDs read from the report pages.
+# Bank answers (never printed), each checked by hand, with the coursebook question it matches:
+# 50129 B (L2; which set of pairs is a function ~ Q 1), 142505 C (L2; same ~ Q 1), 50125 A (L2; domain of a mapping),
+# 142933 C (L3; f(25)/(f(9) + f(16)) = 5/7, values from f(x) notation), 74868 D (L3; range of x^2 + 2 ~ Q 3, 4),
+# 50140 A (L4; four primes, four different cubes in the range).
+# Left out: 74895 (range of sqrt(16 - x^2) is [0, 4], but the bank answer is (0, 4)); 142926 (same as 142505);
+# onto / into, relations (domain of a relation, reflexive and so on), modulus (74865, 74864: Section 1.4), trig, logs,
+# composite or inverse questions, functional equations and rational ranges (harder than the exercise).
 SUPP = [
- dict(n=1, qid='142505', text='Which of the following relation is a function ?',
-      opts=['{(1,4), (2,6), (1,5), (3,9)}', '{(3,3), (2,1), (1,2), (2,3)}', '{(1,2), (2,2), (3,2), (4,2)}', '{(3,1), (3,2), (3,3), (3,4)}'], hint=['Vault', 'Slicer']),
- dict(n=2, qid='74865', text=f'If f(x) = |x − 3| + 2 then f(−1) =', opts=['2', '6', '−6', '0'], hint=['Translator', 'Echo']),
- dict(n=3, qid='142929', text=f'If f(x) = {fr("2x", "1 − x<sup>2</sup>")}, then f (tan {th}) equals-',
-      opts=[f'cot 2{th}', f'tan 2{th}', f'sec 2{th}', f'cos 2{th}'], raw=True, hint=['Translator', 'Vault']),
- dict(n=4, qid='74647', text='Let <i>R</i> be a relation on <i>N</i> defined by x + 2y = 8. The domain of <i>R</i> is',
-      opts=['{2, 4, 8}', '{2, 4, 6, 8}', '{2, 4, 6}', '{1, 2, 3, 4}'], hint=['Starter', 'Slicer']),
- dict(n=5, qid='74646', text=f'A relation <i>R</i> is defined from {{2, 3, 4, 5}} to {{3, 6, 7, 10}} by <i>xRy</i> {IFF} <i>x</i> is relatively prime to <i>y</i>.Then domain of <i>R</i> is',
-      opts=['{2, 3, 5}', '{3, 5}', '{2, 3, 4}', '{2, 3, 4, 5}'], hint=['Echo', 'Slicer']),
- dict(n=6, qid='74648', text=f'If <i>R</i> = {{(x, y)| x, y {IN} <i>Z</i>, x<sup>2</sup> + y<sup>2</sup> {LE} 4}} is a relation in <i>Z</i>, then domain of <i>R</i> is',
-      opts=['{0, 1, 2}', '{0, −1, −2}', '{−2, −1, 0, 1, 2}', 'None of these'], hint=['Translator', 'Slicer']),
- dict(n=7, qid='91584', text=f'The function f : [2, ∞) {TO} Y defined by f(x) = x<sup>2</sup> − 4x + 5 is both one-one &amp; onto if :',
-      opts=['Y = R', 'Y = [1, ∞)', 'Y = [4, ∞)', 'Y = [5, ∞)'], hint=['Vault', 'Roots']),
- dict(n=8, qid='73357', text=f'If f : R {TO} S, defined by f(x) = sin x − √3 cos x + 1, is onto, then the interval of S is -',
-      opts=['[0, 3]', '[−1, 1]', '[0, 1]', '[−1, 3]'], hint=['Vault', 'Echo']),
- dict(n=9, qid='91617', text=f'Let f : R {TO} A = {{y | 0 {LE} y &lt; {fr(PI, "2")}}} be a function such that f(x) = tan<sup>−1</sup> (x<sup>2</sup> + x + k), where k is a constant. The value of k for which f is an onto function, is -',
-      opts=['1', '0', '1/4', 'None of these'], hint=['Starter', 'Roots']),
- dict(n=10, qid='91719', text='Let f (x) = (1 + b<sup>2</sup>)x<sup>2</sup> + 2bx + 1 and let m(b) be the minimum value of f(x). As b varies, the range of m(b) is -',
-      opts=['[0, 1]', '[0, 1/2]', '[1/2, 1]', '(0, 1]'], hint=['Slicer', 'Translator']),
+ dict(n=1, qid='50129', text='Which of the following relations is function?',
+      opts=['{(a, 1), (a, 2), (b, 3), (c, 4)}', '{(a, 2), (b, 3), (c, 4)}', '{(a, 3), (b, 1), (a, 4), (b, 2)}', 'None of these'],
+      hint=[('Echo', 'Read each set aloud: “a goes to 1, a goes to 2 …”. Does any letter go to two places?'),
+            ('Vault', 'A function gives each input just one output. Look for an input that appears twice.')]),
+ dict(n=2, qid='142505', text='Which of the following relation is a function ?',
+      opts=['{(1,4), (2,6), (1,5), (3,9)}', '{(3,3), (2,1), (1,2), (2,3)}', '{(1,2), (2,2), (3,2), (4,2)}', '{(3,1), (3,2), (3,3), (3,4)}'],
+      hint=[('Translator', 'Draw a small arrow diagram for each set: inputs on the left, outputs on the right.'),
+            ('Bridge', 'Think of students and birthdays: two students can share a birthday, but one student cannot have two birthdays.')]),
+ dict(n=3, qid='50125', text=f'Let A = B = {{1, 2, 3, 4, 5}} and f = {{(x, y) {IN} A × B : x = y}} then which of the following option is correct.',
+      opts=['Domain = {1, 2, 3, 4, 5}', 'Range = {1, 2, 3, 4}', 'Number of elements in Domain &gt; Number of elements in Range', 'None Of These'], raw=True,
+      hint=[('Starter', 'Begin by writing out the pairs in f: (1, 1), (2, 2) and so on.'),
+            ('Slicer', 'Find the domain (the first numbers) and the range (the second numbers). Then test each option against them.')]),
+ dict(n=4, qid='142933', text=f'If f : N {TO} R<sup>+</sup>, f(x) = √x , then the value of {fr("f(25)", "f(9) + f(16)")} is -',
+      opts=['0', '1', '5/7', '9/7'], raw=True,
+      hint=[('Starter', 'Begin with the top: f(25) means √25.'),
+            ('Slicer', 'Work out f(9) and f(16) one at a time, add them, then put everything into the fraction.')]),
+ dict(n=5, qid='74868', text='Range of <i>f</i>(x) = x<sup>2</sup> + 2 is',
+      opts=['(−∞, ∞)', '[0, ∞)', '(−∞, 0])', '[2, ∞)'], raw=True,
+      hint=[('Roots', 'x<sup>2</sup> is a square, so it is never below 0. Ask what that makes the smallest value of x<sup>2</sup> + 2.'),
+            ('Bridge', 'Think of a lift that never goes below floor 2 but can go as high as you like. Which floors can it reach?')]),
+ dict(n=6, qid='50140', text='The relation defined R = {(x, x<sup>3</sup>) : x is a prime number less than 10 } how many elements are there in Range ?',
+      opts=['4', '5', '2', '1'],
+      hint=[('Translator', 'List every prime less than 10, then write its cube next to it.'),
+            ('Vault', 'The range is the set of outputs. Count how many different outputs you have.')]),
 ]
 
 PAGES = [
     ('opener1',), ('opener2',),
     ('questions', [1, 2], True, 'space'), ('questions', [3, 4, 5], False, 'space'), ('questions', [6, 7], False, 'space'), ('questions', [8, 9], False, 'spaceqr'),
-    ('supp', [1, 2, 3, 4], True, 'space'), ('supp', [5, 6, 7], False, 'space'), ('supp', [8, 9, 10], False, 'howdid+space'),
-    ('notes',),   # keeps the next exercise's opener on a left-hand (even) page
+    ('supp', [1, 2, 3], True, 'space'), ('supp', [4, 5, 6], False, 'howdid+space'),
 ]

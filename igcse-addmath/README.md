@@ -28,7 +28,7 @@ so the contents page and the end-page numbers stay right.
 
 Full rebuild:
 ```
-python3 build_chapter.py chapters/ch1_ex1.py chapters/ch1_ex2.py chapters/ch1_ex3.py chapters/ch1_ex4.py
-python3 _class/adapt_front.py ../class5 49
+python3 build_chapter.py chapters/ch1_ex1.py chapters/ch1_ex2.py chapters/ch1_ex3.py chapters/ch1_ex4.py chapters/ch1_ex5.py chapters/ch1_ex6.py chapters/ch1_ex7.py
+python3 _class/adapt_front.py ../class5 72
 python3 make.py ../print/<name>.pdf
 ```

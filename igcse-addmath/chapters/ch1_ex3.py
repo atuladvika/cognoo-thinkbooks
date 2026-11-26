@@ -10,8 +10,7 @@ Q18 a i f(x) >= -1/8, ii g(x) != 0; b i fg(x) = 2/x^2 - 1/x, domain x != 0, rang
 Q19 a i f(x) < 9, ii g(x) > 0; b gf(x) = (2x + 2)^2; c domain -1 < x < 2, range 0 < gf(x) < 36;
 Q20 a i f(x) > 5, ii g(x) > 47; b gf(x) = (2x - 1)^2 - 2; c domain x > 4, range gf(x) > 47;
 Q21 a i f(x) > 5, ii g(x) > 65; b gf(x) = (3x + 2)^2 + 1; c domain x > 2, range gf(x) > 65.
-Supplementary (bank answers, never printed): 74899 C, 142605 C, 74898 A, 47832 B, 73374 D, 91598 A, 109055 B,
-91589 A, 47845 D, 142582 D."""
+Supplementary: see the SUPP comment below (answers never printed)."""
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_class'))
 from glyphs_svg import MAP, TO, IN, R, sym
@@ -30,7 +29,7 @@ def defs(*lines):
 CH = dict(
     num=1, title='Functions', first_page=28, exercise='Exercise 1.3',
     subject='Cambridge IGCSE &amp; O Level Additional Mathematics',
-    lecture_qr=None, dyna_qr=None,   # QR Manager codes not issued yet: placeholders are printed
+    lecture_qr=None, dyna_qr='CGN000024',   # lecture QR not issued yet (placeholder); CGN000024 = Chapter 1 Cognoo pathway, issued 26 Nov 2026
     count_line='Exercise 1.3 · 21 questions · Composite functions · Goes with Chapter 1 of your Additional Mathematics Coursebook',
 )
 
@@ -47,7 +46,7 @@ BARS = [
     ('Extraneous Roots', 'check answers against the domain', 4, '#05ccab', 'Q 8, 9, 11, 12'),
     ('Other Algebraic Equations', 'equations with fractions', 2, '#05ccab', 'Q 7, 10'),
 ]
-BARS_TITLE = 'STCA concepts this exercise tests'
+BARS_TITLE = 'Concepts this exercise tests'
 ALSO = ['Solution of Quadratic Equations · Q 8, 9, 11, 12', 'Rational Function · Q 7, 10, 14, 16', 'Square Root Function · Q 4, 6, 17',
         'Greatest and Least Values of a Quadratic · Q 18', 'Definition of a Function · Q 14 to 21']
 
@@ -185,33 +184,40 @@ Q = [
 ]
 SPOT = None
 
-# Supplementary: 10 questions from the i2K / Dynamind bank "Relation and Functions Obj" (Engg/Med Entrance),
-# wording and options as in the bank, Q-IDs read from the report.
-def pw(*rows):
-    return ('<span style="display:inline-flex;align-items:center;vertical-align:middle"><span style="font-size:2.2em;font-weight:300;line-height:1;margin-right:2pt">{</span>'
-            '<span style="display:inline-flex;flex-direction:column;font-size:.92em;line-height:1.25">' + ''.join(f'<span>{r}</span>' for r in rows) + '</span></span>')
+# Supplementary (Atul's rules, 26 Nov 2026): only bank questions within the scope of the coursebook text before the
+# exercise (Section 1.3: fg means g first, then f; fg(x) and gf(x) differ; f^2(x) = ff(x); fg exists only where the range
+# of g lies in the domain of f; building, evaluating and solving with composites of polynomial, rational and root
+# functions) and of comparable hardness. Fewer than 10 is fine.
+# Banks: "1_Functions_Obj" (64186, 2771) and "Relation and Functions Obj" (74898, 109055, 73374).
+# Wording and options exactly as in the bank; Q-IDs read from the report pages.
+# Bank answers (never printed), each checked by hand and with SymPy, with the coursebook question it matches:
+# 64186 B (L4; ff(x) = x^4 - 2x^3 + 2x^2 - x + 1 ~ Worked example 4c, Q 3), 74898 A (L3; ff(x) = (2x + 1)/(2x + 3) ~ Q 3, 16),
+# 2771 C (L3; fg = gf needs ad + b = cb + d, that is f(d) = g(b) ~ Q 1, 2, 6), 109055 B (L4; t^2 + t - 1 = -5/4 gives
+# t = -1/2 ~ Q 7 to 12), 73374 D (L3; ff(x) = x for all x needs alpha = -1 ~ Q 10).
+# Left out: greatest-integer, trig, log and modulus composites (47832, 142605, 74899, 47845, 91589, 142582),
+# onto / injective (73180), inverse (74254: gof = I, Section 1.6), relation composition (88757, 88755),
+# 142987 (a number puzzle, harder than the exercise), duplicates of 73374 (85404, 47831, 91721, 64592, 80334).
 SUPP = [
- dict(n=1, qid='74899', text='If <i>f</i>(x) = x<sup>2</sup> + 2, g(x) = sin x then <i>f</i>(g(x)) =',
-      opts=['sin<sup>2</sup>x', 'sin<sup>−1</sup>x', 'sin<sup>2</sup>x + 2', 'x<sup>2</sup>'], raw=True, hint=['Echo', 'Translator']),
- dict(n=2, qid='142605', text=f'If function f(x) = {pw("1, when x " + IN + " Q", "0, when x " + NOTIN + " Q")}&nbsp; (fof) (√4) the value will be -',
-      opts=['0', '2', '1', 'None of these'], hint=['Slicer', 'Vault']),
- dict(n=3, qid='74898', text=f'If <i>f</i>(x) = {fr("1", "2x + 1")} then find <i>f</i>(<i>f</i>(x))',
-      opts=[fr('2x + 1', '2x + 3'), fr('x + 1', '2x + 3'), '−x', fr('1 − x', 'x + 3')], raw=True, hint=['Translator', 'Slicer']),
- dict(n=4, qid='47832', text=f'Let g(x) = 1 + x − [x] and f(x) = {pw("−1, x &lt; 0", "0, x = 0", "1, x &gt; 0")}&nbsp; and then for all x, f(g(x)) is equal to :',
-      opts=['x', '1', 'f(x)', 'g(x)'], hint=['Starter', 'Roots']),
+ dict(n=1, qid='64186', text='If <i>f</i> : R → R is defined by <i>f</i>(x) = x<sup>2</sup> − x + 1, then (<i>f</i> o <i>f</i>) (x) is'.replace('→', TO),
+      opts=['2x<sup>4</sup> − 2x<sup>2</sup> + 2', 'x<sup>4</sup> − 2x<sup>3</sup> + 2x<sup>2</sup> − x + 1', 'x<sup>4</sup> − 4x<sup>3</sup> + 2x<sup>2</sup> − x + 3', 'x<sup>4</sup> − x<sup>2</sup> + 1'], raw=True,
+      hint=[('Echo', 'Say it in words: f o f means do f, then do f again. It is f<sup>2</sup>(x), as in Worked example 4.'),
+            ('Slicer', 'Put x<sup>2</sup> − x + 1 in place of every x in f. Expand the square first, then collect like terms.')]),
+ dict(n=2, qid='74898', text=f'If <i>f</i>(x) = {fr("1", "2x + 1")} then find <i>f</i>(<i>f</i>(x))',
+      opts=[fr('2x + 1', '2x + 3'), fr('x + 1', '2x + 3'), '−x', fr('1 − x', 'x + 3')], raw=True,
+      hint=[('Starter', 'Begin with the inside: f(x) is the fraction 1 over 2x + 1. Put that whole fraction in place of x in 2x + 1.'),
+            ('Vault', 'To tidy a fraction inside a fraction, multiply its top and bottom by 2x + 1.')]),
+ dict(n=3, qid='2771', text='If f(x) = (ax + b) and g(x) = cx + d, then f[g(x)] = g[f(x)] if and only if :',
+      opts=['f(a) = g(c)', 'f(b) = g(b)', 'f(d) = g(b)', 'f(c) = g(a)'],
+      hint=[('Translator', 'Write f(g(x)) and g(f(x)) as expressions in x. Both are straight lines.'),
+            ('Roots', 'The x-terms already match: both are acx. Ask why only the constant terms now need to be equal, then compare them with each option.')]),
+ dict(n=4, qid='109055', text=f'If g(x) = x<sup>2</sup> + x − 1 and (gof)(x) = 4x<sup>2</sup> − 10x + 5, then f({fr("5", "4")}) is equal to:',
+      opts=['−' + fr('3', '2'), '−' + fr('1', '2'), fr('1', '2'), fr('3', '2')], raw=True,
+      hint=[('Bridge', 'Like a parcel that went through two machines: you know the final output, so work back to what the first machine gave out.'),
+            ('Starter', 'Begin by putting x = 5/4 into 4x<sup>2</sup> − 10x + 5. Then call f(5/4) = t and solve t<sup>2</sup> + t − 1 = that value.')]),
  dict(n=5, qid='73374', text=f'Let f(x) = {fr(ALPHA + "x", "x + 1")}, x {NE} −1. Then for what value of {ALPHA} is f(f(x)) = x ?',
-      opts=['√2', '−√2', '1', '−1'], hint=['Translator', 'Roots']),
- dict(n=6, qid='91598', text=f'Let f : N {TO} N where f (x) = x + (−1)<sup> x−1</sup> then f is-',
-      opts=['Inverse of itself', 'even function', 'periodic', 'identity'], hint=['Translator', 'Echo']),
- dict(n=7, qid='109055', text=f'If g(x) = x<sup>2</sup> + x − 1 and (gof)(x) = 4x<sup>2</sup> − 10x + 5, then f({fr("5", "4")}) is equal to:',
-      opts=['−' + fr('3', '2'), '−' + fr('1', '2'), fr('1', '2'), fr('3', '2')], raw=True, hint=['Starter', 'Slicer']),
- dict(n=8, qid='91589', text='The function f(x) is defined in [0, 1] then the domain of definition of the function f[ℓn (1 − x<sup>2</sup>)] is given by :',
-      opts=['x ' + IN + ' {0}', 'x ' + IN + ' [−√(1 + e), −1] ' + CUP + ' [1, √(1 + e)]', 'x ' + IN + ' (−∞ , ∞)', 'None of these'], raw=True, hint=['Roots', 'Slicer']),
- dict(n=9, qid='47845', text='Let f(x) = sin x and g(x) = ln |x|. If the ranges of the composition functions fog and gof are R<sub>1</sub> and R<sub>2</sub> respectively, then:',
-      opts=['R<sub>1</sub> = {u : −1 ≤ u &lt; 1}, R<sub>2</sub> = {v : −∞ &lt; v &lt; 0}', 'R<sub>1</sub> = {u : −∞ &lt; u &lt; 0}, R<sub>2</sub> = {v : −1 ≤ v ≤ 0}',
-            'R<sub>1</sub> = {u : −1 &lt; u &lt; 1}, R<sub>2</sub> = {v : −∞ &lt; v &lt; 0}', 'R<sub>1</sub> = {u : −1 ≤ u ≤ 1}, R<sub>2</sub> = {v : −∞ &lt; v ≤ 0}'], raw=True, hint=['Slicer', 'Vault']),
- dict(n=10, qid='142582', text=f'g(x) = (4cos<sup>4</sup>x − 2cos 2x − {fr("1", "2")}cos 4x − x<sup>7</sup>)<sup>1/7</sup>, then the value of g(g(100)) is equal to',
-      opts=['−1', '0', '1', '100'], hint=['Roots', 'Starter']),
+      opts=['√2', '−√2', '1', '−1'],
+      hint=[('Translator', 'Write f(f(x)) as one fraction, simplify it, and set it equal to x.'),
+            ('Roots', f'It must be true for every x, so both sides must match term by term. Ask which value of {ALPHA} removes the x-term from the bottom.')]),
 ]
 
 PAGES = [
@@ -219,6 +225,5 @@ PAGES = [
     ('questions', [1, 2], True, 'space'), ('questions', [3, 4, 5], False, 'space'), ('questions', [6, 7, 8], False, 'space'),
     ('questions', [9, 10, 11], False, 'space'), ('questions', [12, 13, 14]), ('questions', [15, 16, 17], False, 'space'),
     ('questions', [18, 19], False, 'space'), ('questions', [20, 21], False, 'spaceqr'),
-    ('supp', [1, 2, 3, 4], True, 'space'), ('supp', [5, 6, 7], False, 'space'), ('supp', [8, 9, 10], False, 'howdid+space'),
-    ('notes',),   # keeps the next exercise's opener on a left-hand (even) page
+    ('supp', [1, 2, 3], True, 'space'), ('supp', [4, 5], False, 'howdid+space'),
 ]

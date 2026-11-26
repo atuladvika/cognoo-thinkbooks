@@ -44,6 +44,8 @@ def frame(p):
 sys.path.insert(0, '_class')
 
 def opts_row(q):
+    if q.get('noans'):   # answer is drawn or filled in above (e.g. a table), no answer line
+        return ''
     if q.get('parts'):
         cells = ''.join(f'<div class="part"><i class="lt">{pt[0]}</i><span class="pm">{pt[1]}</span><div class="wl"><span>{pt[2] if len(pt) > 2 else q.get("part_label", "Range:")}</span><span class="dash"></span></div></div>' for pt in q['parts'])
         cols = 'style="grid-template-columns:1fr"' if q.get('cols') == 1 else ''
@@ -96,7 +98,13 @@ def spot_block(s):
             f'{opts_row(s)}{dyna_box(s)}</div>')
 
 def supp_block(q):
-    hint = ''.join(f'<div class="card">{ico(s)}<div><div class="nm">{s}</div><div class="qq">{M.SQ[s]}</div></div></div>' for s in q['hint'])
+    def card(h):
+        if isinstance(h, str):   # skill only: show its Thinking Question
+            return f'<div class="card">{ico(h)}<div><div class="nm">{h}</div><div class="qq">{M.SQ[h]}</div></div></div>'
+        s, t = h                 # skill + a hint written for this question (stronger for harder questions)
+        return (f'<div class="card tx">{ico(s)}<div><div class="nm">{s} <span class="tg">· {M.SK[s]}</span></div>'
+                f'<div class="qq">{t}</div></div></div>')
+    hint = ''.join(card(h) for h in q['hint'])
     return (f'<div class="q sup"><div class="num">{q["n"]}</div><div class="qid">Q-ID {q["qid"]}</div><div class="qt">{q["text"]}</div>'
             f'{figs(q)}{opts_row(q)}<div class="hint"><div class="lab">THINKING<br>HINT</div>{hint}</div></div>')
 
@@ -153,7 +161,7 @@ def opener1():
         x = 48.8 if i % 2 == 0 else 309.0; y = 211.9 if i < 2 else 250.1
         o.append(f'<div class="know" style="left:{x}pt;top:{y}pt"><span class="tick"></span>{k}</div>')
     total = len(M.Q) + (1 if M.SPOT else 0)
-    o.append(sec(2, getattr(M, 'BARS_TITLE', 'CT skills this chapter tests'), getattr(M, 'BARS_SUB', f'Main STCA concept of each of the {total} questions'), 303))
+    o.append(sec(2, getattr(M, 'BARS_TITLE', 'Concepts this exercise tests'), getattr(M, 'BARS_SUB', f'Main concept of each of the {total} questions'), 303))
     nb = len(M.BARS); pitch = 22.5 if nb > 5 else 24
     sep = 335.5 + pitch * nb + 3.5
     panel_bottom = sep + 6 + 13.5 * 2 + 3.7 + 8
@@ -273,7 +281,7 @@ def suppage(spec):
     items = spec[1]; first = len(spec) > 2 and spec[2]; tail = spec[3] if len(spec) > 3 else None
     o = []; top = 84
     if first:
-        o.append(band_q(f'CHAPTER {num} · {kick_title} · {CH["exercise"].upper()} SUPPLEMENTARY', 'More thinking practice', f'{len(M.SUPP)} questions · {2*len(M.SUPP)} minutes', (417.4, 147.0)))
+        o.append(band_q(f'CHAPTER {num} · {kick_title} · {CH["exercise"].upper()} SUPPLEMENTARY', 'More thinking practice', f'{len(M.SUPP)} question{"s" if len(M.SUPP) != 1 else ""} · {2*len(M.SUPP)} minutes', (417.4, 147.0)))
         o.append(f'<div class="goonline"><div style="position:absolute;left:12.7pt;top:6.5pt;font-size:7.49pt;font-weight:700;color:#007fa3;letter-spacing:.3em">GO ONLINE WITH DYNA</div>'
                  f'<div style="position:absolute;left:12.7pt;top:17.5pt;font-size:11.99pt;font-weight:700;line-height:17pt">Stuck? Take guidance from Dyna Thinking Coach online.</div>'
                  f'<div style="position:absolute;left:13pt;top:37.5pt;width:340pt;font-size:7.6pt;line-height:10.4pt">Try the two thinking skills first. Still stuck? Scan the QR, find the question by its Q-ID, and Dyna will guide you one step at a time.</div>'

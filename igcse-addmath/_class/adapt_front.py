@@ -216,7 +216,9 @@ s, _ = remove_where(s, lambda t: (140 < t['y'] < 240)                           
                     or (290 < t['y'] < 345)                                             # habit cards
                     or abs(t['y'] - 469.5) < 1                                          # flow title
                     or (t['x'] < 290 and 530 < t['y'] < 580)                            # STEP 1 and 2 text
-                    or (700 < t['y'] < 760))                                            # closing paragraph + bullet 1
+                    or (700 < t['y'] < 760)                                             # closing paragraph + bullet 1
+                    or t['text'].startswith('10 new questions')                         # STEP 3 box text
+                    or abs(t['y'] - 798.5) < 1)                                         # bullet 3 (practice questions)
 wr(4, s)
 CARDS = [(45.1, 'Break it down', 'SMALLER STEPS', 'Split a long question into parts and cases. Solve one at a time.'),
          (173.2, 'Spot the pattern', 'WHICH METHOD', 'Spot the type: a quadratic, a log, a trig or a calculus question.'),
@@ -247,6 +249,11 @@ b += [line(297.4, 469.5, 11.54, 'THINKBOOK FLOW: ONE EXERCISE AT A TIME', 700, a
            f'and exercise by exercise, across all 16 chapters, from <i>Functions</i> to <i>Kinematics</i>. Each exercise includes:', justify=False),
       para(71.4, 740.2, 492, 9.2, 12.8,
            'An <b>exercise opener</b> with Atul Sir\'s guided lecture, then <b>every question from the coursebook exercise</b> in the same order',
+           justify=False),
+      line(128.1, 666.9, 6.5, 'Up to 10 questions + hints', anchor='middle'),
+      line(128.1, 675.7, 6.5, 'Stuck? Ask Dyna online', anchor='middle'),
+      para(71.4, 798.5, 492, 9.2, 12.8,
+           '<b>Up to 10 practice questions</b> at the level of the exercise, each with a two-skill hint, and Dyna online (via QR)',
            justify=False)]
 ov(4, header_fix(4) + '\n' + STYLE + '\n' + '\n'.join(b))
 
