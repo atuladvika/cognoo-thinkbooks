@@ -123,46 +123,92 @@ pw2 = width('IGCSE & O LEVEL · ADDITIONAL MATHEMATICS', 10.56, 'Poppins-Bold', 
 ov(2, f'<div class="abs" style="left:48.0pt;top:133.5pt;width:{pw2:.1f}pt;height:24pt;border-radius:12pt;background:{MINT}"></div>\n'
       + line(58.3, 149.2, 10.56, pill2, 700, OCEAN, extra='letter-spacing:.15em;'))
 
-# ======================= page 3: contents =======================
+# ======================= pages 3-5: contents (all 16 chapters) =======================
+# Pages 3-5 are contents; the Class 5 pages 4-9 move to 6-11 at the end of this script; chapters start on page 12.
+FIRST, SHIFT = 12, 2
 s = rd(3)
-s, _ = remove_where(s, lambda t: (40 < t['y'] < 50 and t['x'] > 400) or (abs(t['y'] - 111) < 1 and abs(t['size'] - 9.99) < .1))
+s, _ = remove_where(s, lambda t: (40 < t['y'] < 50 and t['x'] > 400) or (abs(t['y'] - 111) < 1 and abs(t['size'] - 9.99) < .1)
+                    or (t['x'] > 520 and abs(t['size'] - 11.49) < .1))          # old page numbers 4 and 6
 wr(3, s)
 def load(f):
     sp = importlib.util.spec_from_file_location('m', f); m = importlib.util.module_from_spec(sp); sp.loader.exec_module(m); return m
-exfiles = sorted(f'chapters/{f}' for f in os.listdir('chapters') if re.match(r'ch\d+_ex\d+\.py$', f))
-chapters = {}; pg = 10
+from coursebook_toc import TOC
+exfiles = sorted((f'chapters/{f}' for f in os.listdir('chapters') if re.match(r'ch\d+_ex\d+\.py$', f)),
+                 key=lambda f: tuple(int(x) for x in re.findall(r'\d+', os.path.basename(f))))
+built = {}; pg = FIRST
 for f in exfiles:
-    m = load(f); c = m.CH['num']
-    chapters.setdefault(c, {'title': m.CH['title'], 'page': pg, 'ex': []})['ex'].append((m.CH['exercise'], pg))
-    pg += len(m.PAGES)
+    m = load(f); built[m.CH['exercise'].split()[-1]] = pg; pg += len(m.PAGES)
+def strip(t): return H.unescape(re.sub(r'<[^>]+>', '', t))
+def leader(x0, y0, x1):
+    return (f'<div class="abs" style="left:{x0:.2f}pt;top:{y0:.2f}pt;width:{max(0, x1-x0):.2f}pt;height:.75pt;'
+            f'background-image:linear-gradient(90deg,#cccccc 50%,transparent 50%);background-size:1.5pt .75pt"></div>')
+def pbox(x, y0, n, w=30, h=18):
+    col = '#00cfb4' if n else '#cccccc'
+    out = f'<div class="abs" style="left:{x:.2f}pt;top:{y0:.2f}pt;width:{w}pt;height:{h}pt;border:.75pt solid {col};border-radius:4pt;box-sizing:border-box"></div>'
+    if n: out += line(x + w / 2, y0 + 12.9, 9.5, str(n), 700, NAVY, anchor='middle')
+    return out
+COLW, EXS, EXP, WR = 243.0, 9.0, 18.0, 11.5          # column width, exercise text size, row pitch, wrap pitch
+def wrap(t, w, size=None, face='Poppins-Regular'):
+    words, lines, cur = t.split(' '), [], ''
+    for wd in words:
+        trial = (cur + ' ' + wd).strip()
+        if width(strip(trial), size or EXS, face) > w and cur: lines.append(cur); cur = wd
+        else: cur = trial
+    return lines + [cur]
+def chapter_block(c, title, exs):
+    """Return (height, draw(x, y)) for one chapter."""
+    rows = []
+    for i, t in enumerate(exs, 1):
+        num = f'{c}.{i}'; lines = wrap(t, COLW - 34 - 40 - 8)
+        rows.append((num, lines, built.get(num)))
+    hgt = 34 + sum(EXP + WR * (len(l) - 1) for _, l, _ in rows) + 12
+    cpage = built.get(f'{c}.1')
+    def draw(x, y):
+        o = []; navy = (c % 2 == 1); tab = '#1d426d' if navy else '#007ea2'; capc = TURQ if navy else MINT
+        o.append(f'<div class="abs" style="left:{x:.2f}pt;top:{y:.2f}pt;width:36pt;height:26pt;border-radius:5pt;background:{tab}"></div>'
+                 + line(x + 18, y + 8.6, 4.6, 'CHAPTER', 700, capc, anchor='middle') + line(x + 18, y + 21.2, 11.5, str(c), 700, '#ffffff', anchor='middle'))
+        tl = wrap(title, COLW - 44 - 40, 10.5, 'Poppins-Bold')
+        ty = y + 17.6 - (6 if len(tl) > 1 else 0)
+        for k, l in enumerate(tl):
+            o.append(line(x + 44, ty + 12.5 * k, 10.5 if len(tl) == 1 else 9.8, H.escape(l) if '<' not in l else l, 700))
+        o.append(pbox(x + COLW - 30, y + 4, cpage))
+        yy = y + 34
+        for num, lines, p in rows:
+            o.append(line(x + 6, yy + 12.2, EXS, num, 700, OCEAN))
+            for k, l in enumerate(lines):
+                o.append(line(x + 34, yy + 12.2 + WR * k, EXS, l, 400))
+            last = lines[-1]
+            o.append(leader(x + 34 + width(strip(last), EXS) + 6, yy + 12.2 + WR * (len(lines) - 1) - 2.5, x + COLW - 38))
+            o.append(pbox(x + COLW - 30, yy + 1.5 + WR * (len(lines) - 1), p, 30, 15.5))
+            yy += EXP + WR * (len(lines) - 1)
+        return o
+    return hgt, draw
+blocks = [chapter_block(c, t, e) for c, t, e in TOC]
+# columns: (page, x, top, bottom)
+SLOTS = [(3, 54.0, 232.0, 792.0), (3, 316.0, 232.0, 792.0), (4, 54.0, 150.0, 792.0), (4, 316.0, 150.0, 792.0),
+         (5, 54.0, 150.0, 792.0), (5, 316.0, 150.0, 792.0)]
+out = {3: [], 4: [], 5: []}; si = 0; y = SLOTS[0][2]
+for hgt, draw in blocks:
+    while y + hgt > SLOTS[si][3]:
+        si += 1; assert si < len(SLOTS), 'contents overflow'; y = SLOTS[si][2]
+    out[SLOTS[si][0]] += draw(SLOTS[si][1], y); y += hgt
 sub = 'Follows the Cambridge IGCSE &amp; O Level Additional Mathematics Coursebook'
 subw = width('Follows the Cambridge IGCSE & O Level Additional Mathematics Coursebook', 9.99, 'Poppins-Medium')
-rows = [line(198.2 if 198.2 + subw < 564 else 54.3, 111.0 if 198.2 + subw < 564 else 127.0, 9.99, sub, 500, OCEAN)]
-y = 230.22
-def leader(x0, y0, x1):
-    return (f'<div class="abs" style="left:{x0:.2f}pt;top:{y0:.2f}pt;width:{x1-x0:.2f}pt;height:.75pt;'
-            f'background-image:linear-gradient(90deg,#cccccc 50%,transparent 50%);background-size:1.5pt .75pt"></div>')
-def pbox(y0, n, x=522.37):
-    return (f'<div class="abs" style="left:{x}pt;top:{y0 + 4.13:.2f}pt;width:36pt;height:23.25pt;border:.75pt solid #00cfb4;border-radius:4.5pt;box-sizing:border-box"></div>'
-            + line(x + 18.1, y0 + 19.49, 11.49, str(n), 700, NAVY, anchor='middle'))
-for i, (c, ch) in enumerate(sorted(chapters.items())):
-    navy = (c % 2 == 1); tab = '#1d426d' if navy else '#007ea2'; capc = TURQ if navy else MINT
-    tw = width(ch['title'], 12.49, 'Poppins-Medium')
-    rows.append(f'<div class="abs" style="left:54pt;top:{y:.2f}pt;width:48.75pt;height:31.5pt;border-radius:5.7pt;background:{tab}"></div>'
-                + line(78.24, y + 10.49, 5.59, 'CHAPTER', 700, capc, anchor='middle')
-                + line(78.4, y + 22.49, 12.99, str(c), 700, '#ffffff', anchor='middle')
-                + line(112.44, y + 20.24, 12.49, H.escape(ch['title']), 500)
-                + leader(112.44 + tw + 10.7, y + 20.28, 512.3) + pbox(y, ch['page']))
-    y += 38
-    for ex, p in ch['ex']:
-        ew = width(ex, 11, 'Poppins-Medium')
-        rows.append(f'<div class="abs" style="left:116pt;top:{y + 11.5:.2f}pt;width:5pt;height:5pt;border-radius:50%;background:{TURQ}"></div>'
-                    + line(128, y + 19.0, 11, ex, 500)
-                    + leader(128 + ew + 10.7, y + 19.0, 512.3) + pbox(y - 1.5, p))
-        y += 30
-    y += 10
-assert y < 790, 'contents overflow'
-ov(3, header_fix(3) + '\n' + '\n'.join(rows))
+head3 = [line(198.2 if 198.2 + subw < 564 else 54.3, 111.0 if 198.2 + subw < 564 else 127.0, 9.99, sub, 500, OCEAN),
+         line(533.4, 160.5, 11.49, str(4 + SHIFT), 700, NAVY, anchor='middle'), line(533.7, 194.2, 11.49, str(6 + SHIFT), 700, NAVY, anchor='middle'),
+         line(54.3, 222.0, 7.4, 'CHAPTERS AND EXERCISES  ·  page numbers are added as each chapter is built', 700, OCEAN, extra='letter-spacing:.04em;')]
+ov(3, header_fix(3) + '\n' + '\n'.join(head3 + out[3]))
+def footer_num(p):
+    cx = 61.18 if p % 2 == 0 else 551.67
+    return (f'<div class="abs" style="left:{cx-17:.2f}pt;top:807.73pt;width:34pt;height:21pt;box-sizing:border-box;border:1.1pt solid #00cfb4;background:#d6f7f3;border-radius:6pt;display:flex;align-items:center;justify-content:center;'
+            f'font-family:Poppins;font-weight:700;font-size:10.49pt;color:#1e436d">{p}</div>')
+CONTENTS_EXTRA = {}
+for n in (4, 5):
+    fs = open(f'_class/frame_{"even" if n % 2 == 0 else "odd"}.svg').read().replace('PFX_', f'ct{n}_')
+    fs, _ = remove_where(fs, lambda t: abs(t['y'] - 43.5) < 1)
+    CONTENTS_EXTRA[n] = (fs, footer_num(n) + f'<div class="hdr2">{SUBJ}</div>'
+        + line(54.3, 111.0, 27.99, 'Contents', 700) + line(54.3 + width('Contents', 27.99, 'Poppins-Bold') + 10, 111.0, 12, 'continued', 500, OCEAN)
+        + '\n' + '\n'.join(out[n]))
 
 # ======================= page 4: The Thinking Coach =======================
 s = rd(4)
@@ -173,9 +219,9 @@ s, _ = remove_where(s, lambda t: (140 < t['y'] < 240)                           
                     or (700 < t['y'] < 760))                                            # closing paragraph + bullet 1
 wr(4, s)
 CARDS = [(45.1, 'Break it down', 'SMALLER STEPS', 'Split a long question into parts and cases. Solve one at a time.'),
-         (173.2, 'Spot the pattern', 'FUNCTION TYPE', 'Recognise the kind of function: line, quadratic, modulus, fraction.'),
-         (301.6, 'Picture it', 'SKETCH THE GRAPH', 'Sketch the graph to see the range, crossings and turning points.'),
-         (428.9, 'Check each step', 'DOMAIN AND METHOD', 'Follow a clear method. Check each answer against the domain.')]
+         (173.2, 'Spot the pattern', 'WHICH METHOD', 'Spot the type: a quadratic, a log, a trig or a calculus question.'),
+         (301.6, 'Picture it', 'SKETCH OR DRAW', 'Sketch a graph, a triangle or a vector diagram to see what is going on.'),
+         (428.9, 'Check each step', 'METHOD AND ANSWER', 'Follow a clear method. Check that each answer makes sense.')]
 b = [line(67.7, 146.2, 13.0, 'Why Thinking Matters in Additional Mathematics', 700),
      para(54.4, 165.7, 510, 9.2, 13.5,
           'Additional Mathematics asks for more than a formula you remember. Each exercise asks you to read a question closely, '
@@ -192,15 +238,15 @@ for x0, t, lab, d in CARDS:
 b += [line(297.4, 469.5, 11.54, 'THINKBOOK FLOW: ONE EXERCISE AT A TIME', 700, anchor='middle'),
       line(118.0, 540.2, 8.14, 'Exercise Opener', 700, anchor='middle'),
       line(118.0, 553.1, 6.52, 'What you need to know', 400, anchor='middle'),
-      line(118.0, 562.6, 6.52, 'and Atul Sir\'s lecture', 400, anchor='middle'),
+      line(118.0, 562.6, 6.52, 'and Atul Sir\'s guided lecture', 400, anchor='middle'),
       line(225.0, 540.2, 8.14, 'Exercise Questions', 700, anchor='middle'),
       line(225.0, 553.1, 6.52, 'Every coursebook question,', 400, anchor='middle'),
       line(225.0, 562.6, 6.52, 'in the same order', 400, anchor='middle'),
       para(54.4, 708.0, 510, 9.2, 13.47,
            'The ThinkBook Guide follows the <b>Cambridge IGCSE &amp; O Level Additional Mathematics Coursebook</b> chapter by chapter '
-           f'and exercise by exercise. This volume covers <i>Chapter 1: Functions</i>. Each exercise includes:', justify=False),
+           f'and exercise by exercise, across all 16 chapters, from <i>Functions</i> to <i>Kinematics</i>. Each exercise includes:', justify=False),
       para(71.4, 740.2, 492, 9.2, 12.8,
-           'An <b>exercise opener</b> with Atul Sir\'s lecture, then <b>every question from the coursebook exercise</b> in the same order',
+           'An <b>exercise opener</b> with Atul Sir\'s guided lecture, then <b>every question from the coursebook exercise</b> in the same order',
            justify=False)]
 ov(4, header_fix(4) + '\n' + STYLE + '\n' + '\n'.join(b))
 
@@ -296,4 +342,22 @@ bc = bc.replace('Scan to watch the<br>4-minute video', 'Scan to watch the<br>exp
 bc = bc.replace('When a child is stuck', 'When a student is stuck').replace('guides them with', 'guides them with')
 assert 'CBSE' not in bc and 'CGN0000' not in bc
 open(f'overlays/p{BC:02d}.html', 'w').write(bc)
-print('front matter built; notes', NOTES, 'inside back', IBC, 'back', BC)
+# ======================= move Class 5 pages 4-9 to 6-11, add contents pages 4-5 =======================
+import glob
+saved = {}
+for n in range(4, 10):
+    sv = rd(n)
+    if n == 4: sv = sv.replace('>6)<', '>8)<')                          # "(refer page 6)" -> page 8
+    sv, _ = remove_where(sv, lambda t: t['y'] > 815 and abs(t['size'] - 10.49) < .1)   # baked page number
+    ovs = {os.path.basename(f): open(f).read() for f in glob.glob(f'overlays/p{n:02d}_*.html')}
+    saved[n + SHIFT] = (sv, ovs)
+for n in range(4, 12):
+    for f in glob.glob(f'pages/p{n:02d}.svg') + glob.glob(f'overlays/p{n:02d}.html') + glob.glob(f'overlays/p{n:02d}_*.html'):
+        os.remove(f)
+for n, (sv, ovs) in saved.items():
+    wr(n, sv)
+    for name, body in ovs.items():
+        open(f'overlays/p{n:02d}' + name[3:], 'w').write(body.replace('<div class="ov">', '<div class="ov">\n' + footer_num(n), 1))
+for n, (fs, body) in CONTENTS_EXTRA.items():
+    wr(n, fs); ov(n, body)
+print('front matter built; contents 3-5; notes', NOTES, 'inside back', IBC, 'back', BC)

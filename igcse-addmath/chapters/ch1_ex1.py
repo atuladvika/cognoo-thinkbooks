@@ -19,7 +19,7 @@ XR = f'{x} {IN} {R}'
 CH = dict(
     num=1, title='Functions', first_page=10, exercise='Exercise 1.1', lecture_label='Exercise 1.1',
     subject='Cambridge IGCSE &amp; O Level Additional Mathematics',
-    lecture_qr=None, dyna_qr=None,   # QR Manager codes not issued yet: placeholders are printed
+    lecture_qr='CGN000023', dyna_qr=None,   # lecture QR issued 26 Nov 2026; Dyna QR not issued yet (placeholder)
     count_line='Exercise 1.1 · 8 questions · One-one, many-one and one-many mappings · Goes with Chapter 1 of your Additional Mathematics Coursebook',
 )
 

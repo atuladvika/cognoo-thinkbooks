@@ -1,0 +1,239 @@
+1
+00:00:01,500 --> 00:00:03,260
+Hello, young thinkers!
+
+2
+00:00:03,460 --> 00:00:07,785
+Atul Sir, your Thinking Mentor, has guided this lesson.
+
+3
+00:00:08,185 --> 00:00:12,034
+Today, we learn to tell three kinds of mapping apart.
+
+4
+00:00:13,384 --> 00:00:15,636
+First, how to read a mapping.
+
+5
+00:00:15,886 --> 00:00:18,555
+x is mapped to two x minus three.
+
+6
+00:00:18,805 --> 00:00:19,885
+Put in three:
+
+7
+00:00:19,935 --> 00:00:21,993
+two times three, minus three,
+
+8
+00:00:22,043 --> 00:00:23,026
+gives three.
+
+9
+00:00:23,576 --> 00:00:26,298
+The part after the rule is the domain.
+
+10
+00:00:26,448 --> 00:00:29,272
+It tells you which inputs are allowed.
+
+11
+00:00:30,622 --> 00:00:33,467
+Concept one: three kinds of mapping.
+
+12
+00:00:33,817 --> 00:00:34,538
+One-one:
+
+13
+00:00:34,588 --> 00:00:37,627
+each output comes from just one input.
+
+14
+00:00:38,177 --> 00:00:39,001
+Many-one:
+
+15
+00:00:39,051 --> 00:00:41,177
+two inputs share an output.
+
+16
+00:00:41,727 --> 00:00:42,631
+One-many:
+
+17
+00:00:42,681 --> 00:00:44,929
+one input gives two outputs.
+
+18
+00:00:46,279 --> 00:00:49,192
+Concept two: test a pair of inputs.
+
+19
+00:00:49,492 --> 00:00:52,876
+Take x is mapped to x squared minus four.
+
+20
+00:00:53,176 --> 00:00:55,255
+Try two, and minus two.
+
+21
+00:00:55,505 --> 00:00:59,267
+Two squared is four. Minus four gives zero.
+
+22
+00:00:59,467 --> 00:01:03,432
+Minus two squared is also four. Zero again.
+
+23
+00:01:03,882 --> 00:01:06,571
+Two different inputs, one output.
+
+24
+00:01:06,820 --> 00:01:09,047
+So this mapping is many-one.
+
+25
+00:01:09,897 --> 00:01:13,333
+Tip: always try a pair with opposite signs.
+
+26
+00:01:14,783 --> 00:01:17,233
+Concept three: the line tests.
+
+27
+00:01:17,533 --> 00:01:20,384
+Here is x cubed minus three x.
+
+28
+00:01:20,734 --> 00:01:23,252
+Draw a horizontal line across it.
+
+29
+00:01:23,452 --> 00:01:25,679
+It meets the curve three times.
+
+30
+00:01:25,929 --> 00:01:28,439
+Three inputs share one output:
+
+31
+00:01:28,489 --> 00:01:29,313
+many-one.
+
+32
+00:01:30,163 --> 00:01:32,240
+Now try two x minus three.
+
+33
+00:01:32,590 --> 00:01:35,817
+Every horizontal line meets it just once.
+
+34
+00:01:36,067 --> 00:01:37,541
+So it is one-one.
+
+35
+00:01:38,191 --> 00:01:42,399
+A vertical line shows how many outputs one input has.
+
+36
+00:01:43,949 --> 00:01:47,437
+Concept four: the domain can change the answer.
+
+37
+00:01:47,787 --> 00:01:52,371
+On all real numbers, x squared minus four is many-one.
+
+38
+00:01:52,721 --> 00:01:56,798
+Now allow only x greater than or equal to zero.
+
+39
+00:01:57,048 --> 00:01:59,468
+The left half of the curve is gone.
+
+40
+00:01:59,718 --> 00:02:02,821
+Every horizontal line now meets it once.
+
+41
+00:02:03,071 --> 00:02:06,073
+Same rule, but now it is one-one.
+
+42
+00:02:06,823 --> 00:02:09,473
+So always read the domain first.
+
+43
+00:02:10,923 --> 00:02:14,052
+Concept five: one input, two outputs.
+
+44
+00:02:14,352 --> 00:02:17,058
+Map each number to its square roots.
+
+45
+00:02:17,308 --> 00:02:18,564
+Four goes to two,
+
+46
+00:02:18,564 --> 00:02:19,816
+and to minus two.
+
+47
+00:02:20,116 --> 00:02:22,909
+Nine goes to three, and to minus three.
+
+48
+00:02:23,259 --> 00:02:25,312
+One input, two outputs:
+
+49
+00:02:25,362 --> 00:02:26,766
+that is one-many.
+
+50
+00:02:27,516 --> 00:02:30,557
+Watch for a plus-or-minus sign in the rule.
+
+51
+00:02:32,007 --> 00:02:34,887
+Now, the traps in this exercise.
+
+52
+00:02:35,237 --> 00:02:39,719
+In questions two and six, try inputs with opposite signs.
+
+53
+00:02:40,269 --> 00:02:43,763
+In question three, odd powers keep their sign.
+
+54
+00:02:43,863 --> 00:02:45,573
+Test before you decide.
+
+55
+00:02:46,123 --> 00:02:50,197
+In questions five and seven, read the domain first.
+
+56
+00:02:50,747 --> 00:02:54,288
+In question eight, plus-or-minus means two signs.
+
+57
+00:02:55,738 --> 00:02:56,715
+Your turn.
+
+58
+00:02:56,965 --> 00:03:00,221
+Here is which idea helps with which question.
+
+59
+00:03:00,971 --> 00:03:04,879
+Stuck? Dyna's hints are in your ThinkBook.
+
+60
+00:03:05,229 --> 00:03:07,844
+Pause the video, and try all eight!

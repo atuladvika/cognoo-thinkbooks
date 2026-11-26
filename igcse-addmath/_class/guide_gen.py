@@ -144,7 +144,7 @@ def opener1():
          f'<div class="ttl" style="top:15.5pt;font-size:31.49pt;line-height:47pt">{H.escape(T)} <span style="font-size:15pt;color:#00cfb4;letter-spacing:.02em">· {CH.get("exercise","")}</span></div>'
          f'<div class="sub" style="top:64.3pt;width:340pt">{CH["count_line"]}</div>'
          f'<div class="qrcard" style="left:484.8pt;top:6pt;width:80pt;height:87pt;padding-top:7pt">{qr(CH["lecture_qr"],54,"Lecture video")}'
-         f'<div class="cap" style="margin-top:4.2pt">Scan to watch Atul Sir\'s<br>{CH.get("exercise","Chapter "+str(num))} lecture</div></div>'
+         f'<div class="cap" style="margin-top:4.2pt">Atul Sir\'s guided lecture<br>{CH.get("exercise","Chapter "+str(num))}</div></div>'
          + PLAY.format(l=476.6, t=-2.2, c='#007fa3') + '</div>']
     def sec(n, t, s, y):
         return f'<div class="sec" style="top:{y}pt"><div class="n">{n}</div><div class="t">{t}</div><div class="s">{s}</div></div>'
